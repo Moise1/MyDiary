@@ -49,7 +49,8 @@ typeWriter();
 const openNav = ()=>{
     const mediaQueries = [
         window.matchMedia("(min-width: 1224px)"),
-        window.matchMedia("(max-width: 700px)"),
+        window.matchMedia("(min-width: 700px)"),
+        window.matchMedia("(max-width: 320px)")
        ]
        
     if(mediaQueries[0].matches){
@@ -59,7 +60,7 @@ const openNav = ()=>{
     else if(mediaQueries[1].matches){
         return document.getElementById("myNav").style.width = "35%";
 
-    }else{
+    }else if(mediaQueries[2]){
         return document.getElementById("myNav").style.width = "100%";
     }
 } 
