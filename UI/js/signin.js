@@ -21,3 +21,8 @@ const openNav = ()=>{
 const closeNav = ()=>{
     document.getElementById("myNav").style.width = "0%";
 }
+
+
+formValidator = () => {
+    window.location.assign('./entries.html');
+}
