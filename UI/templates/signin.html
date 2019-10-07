@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/x-icon"   href="../images/book.png">
+    <link rel="stylesheet" href="../css/signin.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>My Diary | Sign In</title>
+</head>
+<body>
+    <div class="main-container">
+        <header class="header">
+            <div class="logo-container">
+                <a class="logo-wrapper" href="../index.html">
+                    <img src="../images/book.png" alt="">
+                    <p id="diary-text">My Diary</p>
+                </a>
+            </div>
+
+            <div id="myNav" class="overlay">
+                <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                <div class="overlay-content">
+                  <a href="signup.html">Sign Up</a>
+                  <a href="../index.html">Back</a>
+                  <a href="#">Settings</a>
+                  <a href="#">Share</a>
+                  <a href="#">Feedback</a>
+                </div>
+                <div class="overlay-footer">
+                    <p>&copy; <script>document.write(new Date().getFullYear());</script>&nbsp; My&nbsp; Diary</p>
+                </div>
+              </div>
+
+              <span class="burger-menu"  onclick="openNav()">&#9776;</span>
+        </header>
+
+        <main class="content-container">
+            <h1>Sign In</h1>
+            <form action="">
+
+                <div class="field-email">
+                    <input type="email" placeholder="Email ...">
+                </div>
+
+                <div class="field-Pword">
+                    <input type="password" placeholder="Password ...">
+                </div>
+
+                <button class="reg-button">
+                    <p>Sign In</p>
+                </button>
+            </form>
+        </main> 
+
+    </div>
+
+    <footer class="footer">
+        <p>&copy; <script>document.write(new Date().getFullYear());</script>&nbsp; My&nbsp; Diary</p>
+    </footer>
+    <script type="text/javascript" src="../js/signin.js"></script>
+</body>
+</html>

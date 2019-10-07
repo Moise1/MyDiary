@@ -1,0 +1,1033 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
+
+
+body {
+    padding: 0; 
+    margin: 0;
+    font-family: 'Caveat',  cursive, 'Ubuntu', sans-serif;
+    height: 100%;
+    transition: background 0.5s ease;
+    box-sizing: border-box; 
+    background:  #FDFEFE;
+}
+
+
+/*  Desktop/Laptop screen size */
+
+@media screen and (min-width: 1224px) and (orientation: landscape){ 
+
+    a {
+        text-decoration: none;
+    }
+
+    .main-container {
+        display: grid; 
+        overflow: hidden;
+
+    }
+
+    .header {
+        position: relative;
+        height: 90px;
+        outline: none;
+    }
+
+    .logo-wrapper img {
+        padding: 15px;
+    }
+    .logo-wrapper{
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        padding: 5px;
+    }
+
+    #diary-text{
+        margin-top: 19.5px;
+        font-style: oblique;
+        font-size: 25px;
+        color: #000;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
+
+
+    .burger-menu {
+        font-size:30px;
+        cursor:pointer;
+        float: right; 
+        margin:35px 30px 0 0;
+        color: #000;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 12px;
+        text-decoration: none;
+        font-size: 30px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 40px;
+      }
+      
+
+    .overlay-content a {
+          font-size: 20px
+    }
+    .overlay .closebtn {
+    font-size: 80px;
+    top: -12px;
+    right: 20px;
+    }
+
+    .overlay-footer {
+        left: 0; 
+        right: 0;
+        bottom: 20px;
+        position: absolute;
+    }
+
+    .overlay-footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 20px;
+        color: #FDFEFE;
+    }
+
+
+
+    @-o-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-webkit-keyframes fadeIn{
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-moz-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+
+
+
+
+    .content-container {
+        height: 520px; 
+        position: relative;
+        animation: fadeIn ease-in 2s;
+
+        
+    }
+
+    .content-container h1{
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+    
+
+    .content-container form {
+        top: 20%;
+        right: 40%; 
+        left: 40%;
+        padding: 30px; 
+        position: absolute;
+        width: 20%;
+    }
+
+    .content-container div > input {
+         width: 100%;
+         border: none; 
+         padding: 10px 0 20px 10px;
+         border-bottom: 1px solid #000;
+         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+         font-size: 20px; 
+    }
+
+
+
+
+    .content-container form input:focus {
+        outline: none;
+    }
+
+    ::-webkit-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    :-ms-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    ::placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+
+    
+    form .reg-button {
+        margin: 50px 0 0 85px;
+        font-size: 20px;
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .reg-button:focus {
+        outline: none;
+    }
+
+    .reg-button {
+        background: #FF5733;
+        border: none;
+    }
+    .reg-button p {
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+        color: #FDFEFE;
+        position: absolute;
+        text-align: center;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+
+
+    }
+    .footer {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        bottom: 20px;
+    }
+
+    .footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 25px;
+        color: #000;
+    }
+
+} 
+
+
+/* Tablet/iPad screen size */
+
+@media only screen and (max-width: 1024px) and (orientation: landscape){
+    a {
+        text-decoration: none;
+        color: #000;
+    }
+
+    .main-container {
+        display: grid; 
+        overflow: hidden;
+
+    }
+
+    .header {
+        position: relative;
+        height: 90px;
+    }
+
+    .logo-wrapper img {
+        padding: 15px;
+    }
+    .logo-wrapper{
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        padding: 5px;
+    }
+
+    #diary-text{
+        margin-top: 19.5px;
+        font-style: oblique;
+        font-size: 25px;
+        color: #000;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
+
+
+    .burger-menu {
+        font-size:30px;
+        cursor:pointer;
+        float: right; 
+        margin:35px 30px 0 0;
+        color: #000;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 12px;
+        text-decoration: none;
+        font-size: 30px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 40px;
+      }
+      
+
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+    font-size: 80px;
+    top: -12px;
+    right: 20px;
+    }
+
+    .overlay-footer {
+        left: 0; 
+        right: 0;
+        bottom: 10px;
+        position: absolute;
+    }
+
+    .overlay-footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 20px;
+        color: #FDFEFE;
+    }
+
+    @-o-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-webkit-keyframes fadeIn{
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-moz-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+
+
+
+
+    .content-container {
+        height: 520px; 
+        position: relative;
+        animation: fadeIn ease-in 2s;
+
+        
+    }
+
+    .content-container h1{
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+    
+
+    .content-container form {
+        top: 15%;
+        right: 40%; 
+        left: 40%;
+        padding: 30px; 
+        position: absolute;
+        width: 20%;
+    }
+
+    .content-container div > input {
+         width: 100%;
+         border: none;
+         padding: 10px 0 20px 10px;
+         border-bottom: 1px solid #000;
+         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+         font-size: 20px; 
+    }
+
+
+
+
+    .content-container form input:focus {
+        outline: none;
+    }
+    
+    ::-webkit-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    :-ms-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    ::placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+
+    
+    .reg-button {
+        margin: 50px 0 0 85px;
+        font-size: 20px;
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        position: relative;
+        cursor: pointer;
+    }
+
+    .reg-button:focus {
+        outline: none;
+    }
+
+    .reg-button{
+        background: #FF5733;
+        border: none;
+        right: 30%;
+    }
+    .reg-button p {
+        top: 10px;
+        left: 10px;
+        font-size: 20px;
+        color: #FDFEFE;
+        position: absolute;
+        text-align: center;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+
+
+    }
+    .footer {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        bottom: 20px;
+    }
+
+    .footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 25px;
+        color: #000;
+    }
+
+} 
+
+
+/* Mobile phone screen size */ 
+
+@media only screen and (max-width: 700px) and (orientation: portrait){
+
+    a {
+        text-decoration: none;
+    }
+
+    .main-container {
+        display: grid; 
+        overflow: hidden;
+
+    }
+
+    .header {
+        position: relative;
+        height: 90px;
+    }
+
+    .logo-wrapper img {
+        padding: 15px;
+    }
+    .logo-wrapper{
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+        padding: 5px;
+    }
+
+    #diary-text{
+        margin-top: 19.5px;
+        font-style: oblique;
+        font-size: 25px;
+        color: #000;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
+
+
+    .burger-menu {
+        font-size:30px;
+        cursor:pointer;
+        float: right; 
+        margin:35px 30px 0 0;
+        color: #000;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 12px;
+        text-decoration: none;
+        font-size: 30px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 40px;
+      }
+      
+
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 80px;
+        top: -12px;
+        right: 20px;
+    }
+
+    .overlay-footer {
+        left: 0; 
+        right: 0;
+        bottom: 10px;
+        position: absolute;
+    }
+
+    .overlay-footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 20px;
+        color: #000;
+    }
+
+
+
+    @-o-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-webkit-keyframes fadeIn{
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-moz-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+
+
+
+
+    .content-container {
+        height: 520px; 
+        position: relative;
+        animation: fadeIn ease-in 2s;
+
+        
+    }
+
+    .content-container h1{
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+    
+
+    .content-container form {
+        top: 15%;
+        right: 20%; 
+        left: 20%;
+        padding: 30px; 
+        position: relative;
+        width: 40%;
+    }
+
+    .content-container div > input {
+         width: 100%;
+         border: none; 
+         padding: 10px 0 20px 10px;
+         border-bottom: 1px solid #000;
+         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+         font-size: 20px; 
+    }
+
+
+
+
+    .content-container form input:focus {
+        outline: none;
+    }
+    
+    ::-webkit-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    :-ms-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    ::placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+
+    
+    .reg-button {
+        margin: 50px 0 0 200px;
+        font-size: 20px;
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        position: relative;
+        cursor: pointer;
+        background: #FF5733;
+        border: none; 
+        position: absolute;
+    }
+
+    .reg-button:focus {
+        outline: none;
+    }
+
+
+    .reg-button p {
+        top: 10px;
+        left: 10px;
+        color: #FDFEFE;
+        position: absolute;
+        text-align: center;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+
+
+    }
+    .footer {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        bottom: 20px;
+    }
+
+    .footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 25px;
+        color: #000;
+    }
+
+} 
+
+
+/* Extra small mobile screen size */ 
+
+
+@media only screen and (min-width: 300px) and (orientation: portrait){
+    a {
+        text-decoration: none;
+    }
+
+    .main-container {
+        display: grid; 
+        overflow: hidden;
+
+    }
+
+    .header {
+        position: relative;
+        height: 90px;
+    }
+
+    .logo-wrapper img {
+        padding: 15px;
+    }
+    .logo-wrapper{
+        display: flex;
+        position: absolute;
+        margin-left: -30px;
+        top: 10px;
+        padding: 5px;
+    }
+
+    #diary-text{
+        margin-top: 19.5px;
+        font-style: oblique;
+        font-size: 25px;
+        color: #000;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
+
+
+    .burger-menu {
+        font-size:30px;
+        cursor:pointer;
+        float: right; 
+        margin:35px 30px 0 0;
+        color: #000;
+    }
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        right: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+      
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+      
+      .overlay a {
+        padding: 12px;
+        text-decoration: none;
+        font-size: 30px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+      
+      .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+      }
+      
+      .overlay .closebtn {
+        position: absolute;
+        top: 20px;
+        right: 45px;
+        font-size: 40px;
+      }
+      
+
+    .overlay a {
+        font-size: 20px
+    }
+
+    .overlay .closebtn {
+        font-size: 80px;
+        top: -12px;
+        right: 20px;
+    }
+
+    .overlay-footer {
+        left: 0; 
+        right: 0;
+        bottom: 10px;
+        position: absolute;
+    }
+
+    .overlay-footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 20px;
+        color: #000;
+    }
+
+
+
+    .content-container {
+        height: 520px; 
+    }
+
+
+    @-o-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-webkit-keyframes fadeIn{
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+    
+    
+    @-moz-keyframes fadeIn {
+        from{
+            opacity: 0;
+        }to{
+            opacity: 1;
+        }
+    }
+
+
+
+
+    .content-container {
+        height: 520px; 
+        position: relative;
+        animation: fadeIn ease-in 2s;
+
+        
+    }
+
+    .content-container h1{
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+    
+
+    .content-container form {
+        top: 15%;
+        right: 10%; 
+        left: 10%;
+        padding: 30px; 
+        position: absolute;
+        width: 60%;
+    }
+
+    .content-container div > input {
+         width: 100%;
+         border: none; 
+         padding: 10px 0 20px 10px;
+         border-bottom: 1px solid #000;
+         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+         font-size: 20px; 
+    }
+
+
+
+
+    .content-container form input:focus {
+        outline: none;
+    }
+    
+    ::-webkit-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    :-ms-input-placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+    ::placeholder {
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
+        font-size: 18px;
+    }
+
+
+    
+    .reg-button {
+        margin: 50px 0 0 45px;
+        font-size: 20px;
+        border-radius: 30%;
+        height: 80px;
+        width: 80px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        position: relative;
+        cursor: pointer;
+        background: #FF5733;
+        border: none;
+        position: absolute;
+
+    }
+
+    .reg-button:focus {
+        outline: none;
+    }
+
+    .reg-button p {
+        top: 10px;
+        left: 10px;
+        color: #FDFEFE;
+        position: absolute;
+        text-align: center;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+
+
+    }
+    .footer {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        bottom: 20px;
+    }
+
+    .footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 25px;
+        color: #000;
+    }
+
+
+    .footer {
+        position: absolute;
+        left: 0; 
+        right: 0;
+        bottom: 10px;
+    }
+
+    .footer p {
+        margin: 10px 0 0 0;
+        padding:0;
+        text-align: center;
+        font-size: 25px;
+        color: #000;
+    }
+}
