@@ -37,27 +37,31 @@
 
         <main class="content-container">
             <h1>Sign Up</h1>
-            <form action="">
+            <form action="" id="form">
                 <div class="field-Fname">
-                    <input type="text" placeholder="First name ...">
+                    <input class="input" type="text" id="firstName"  autocomplete="off"  placeholder="First name ...">
                 </div>
 
                 <div class="field-Lname">
-                    <input type="text" placeholder="Last name ...">
+                    <input class="input" type="text"  id="lastName" autocomplete="off" placeholder="Last name ...">
                 </div>
 
                 <div class="field-email">
-                    <input type="email" placeholder="Email ...">
+                    <input class="input"  type="email" id="email"  placeholder="Email ...">
                 </div>
 
-                <div class="field-Lname">
-                    <input type="password" placeholder="Password ...">
+                <div class="field-password">
+                    <input class="input"  type="password" id="password"  autocomplete="off" placeholder="Password ...">
                 </div>
 
                 <button class="reg-button"  type="button">
                     <p onclick="formValidator()">Sign Up</p>
                 </button>
             </form>
+
+            <div class="wrong-input">
+                <p id="invalidInput"></p>
+            </div>
         </main> 
 
     </div>

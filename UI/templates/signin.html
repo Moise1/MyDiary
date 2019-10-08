@@ -40,17 +40,21 @@
             <form action="">
 
                 <div class="field-email">
-                    <input type="email" placeholder="Email ...">
+                    <input type="email" id="email"  autocomplete="off" placeholder="Email ...">
                 </div>
 
                 <div class="field-Pword">
-                    <input type="password" placeholder="Password ...">
+                    <input type="password" id="password" autocomplete="off"  placeholder="Password ...">
                 </div>
 
                 <button  class="reg-button"  type="button" >
                     <p onclick="formValidator()">Sign In</p>
                 </button>
             </form>
+
+            <div class="wrong-input">
+                <p id="invalidInput"></p>
+            </div>
         </main> 
 
     </div>

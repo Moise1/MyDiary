@@ -105,9 +105,9 @@ body {
           font-size: 20px
     }
     .overlay .closebtn {
-    font-size: 80px;
-    top: -12px;
-    right: 20px;
+        font-size: 80px;
+        top: -12px;
+        right: 20px;
     }
 
     .overlay-footer {
@@ -164,82 +164,14 @@ body {
         
     }
 
-    .content-container h1{
+   
+    .entries #entry-number {
+        font-size: 40px;
+    }
+    .entries h2{
         text-align: center;
-        margin-top: 40px;
-    }
-
-
-    
-
-    .content-container form {
-        top: 20%;
-        right: 40%; 
-        left: 40%;
-        padding: 30px; 
-        position: absolute;
-        width: 20%;
-    }
-
-    .content-container div > input {
-         width: 100%;
-         border: none; 
-         padding: 10px 0 20px 10px;
-         border-bottom: 1px solid #000;
-         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
-         font-size: 20px; 
-    }
-
-
-    .content-container form input:focus {
-        outline: none;
-    }
-
-    ::-webkit-input-placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-    :-ms-input-placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-    ::placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-
-    
-    .reg-button {
-        margin: 50px 0 0 85px;
-        font-size: 20px;
-        border-radius: 30%;
-        height: 80px;
-        width: 80px;
-        -moz-border-radius:50%;
-        -webkit-border-radius:50%;
-        position: relative;
-        cursor: pointer;
-        background: #FF5733;
-        border: none;
-    }
-
-    .reg-button:focus {
-        outline: none;
-    }
-
-    .reg-button p {
-        top: 10px;
-        left: 10px;
-        font-size: 20px;
-        color: #FDFEFE;
-        position: absolute;
-        text-align: center;
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
-
-
+        font-weight: initial;
+        margin-top: 50px; 
     }
     .footer {
         position: absolute;
@@ -868,7 +800,7 @@ body {
         padding:0;
         text-align: center;
         font-size: 20px;
-        color: #000;
+        color: #fff;
     }
 
 
@@ -941,9 +873,6 @@ body {
          font-size: 20px; 
     }
 
-
-
-
     .content-container form input:focus {
         outline: none;
     }
@@ -964,7 +893,6 @@ body {
     }
 
 
-    
     .reg-button {
         margin: 50px 0 0 45px;
         font-size: 20px;
