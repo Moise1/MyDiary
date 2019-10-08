@@ -191,8 +191,6 @@ body {
     }
 
 
-
-
     .content-container form input:focus {
         outline: none;
     }
@@ -214,8 +212,8 @@ body {
 
 
     
-    form .reg-button {
-        margin: 50px 0 0 85px;
+    .reg-button {
+        margin: 70px 0 0 85px;
         font-size: 20px;
         border-radius: 30%;
         height: 80px;
@@ -224,16 +222,14 @@ body {
         -webkit-border-radius:50%;
         position: relative;
         cursor: pointer;
+        background: #FF5733;
+        border: none;
     }
 
     .reg-button:focus {
         outline: none;
     }
 
-    .reg-button {
-        background: #FF5733;
-        border: none;
-    }
     .reg-button p {
         top: 10px;
         left: 10px;
@@ -473,17 +469,16 @@ body {
         -webkit-border-radius:50%;
         position: relative;
         cursor: pointer;
+        background: #FF5733;
+        border: none;
+        right: 30%;
     }
 
     .reg-button:focus {
         outline: none;
     }
 
-    .reg-button{
-        background: #FF5733;
-        border: none;
-        right: 30%;
-    }
+    
     .reg-button p {
         top: 10px;
         left: 10px;
