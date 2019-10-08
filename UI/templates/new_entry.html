@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="shortcut icon" type="image/x-icon"   href="../images/book.png">
-    <link rel="stylesheet" href="../css/entries.css">
-    <title>My Diary | Entries</title>
+    <link rel="stylesheet" href="../css/new_entry.css">
+    <title>My Diary | New Entry</title>
 </head>
 <body>
     <div class="main-container">
@@ -22,7 +22,6 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
                   <a href="../index.html">Back</a>
-                  <a href="new_entry.html">New Entry</a>
                   <a href="entries.html">All Entries</a>
                   <a href="#">Settings</a>
                   <a href="#">Share</a>
@@ -39,8 +38,29 @@
         </header>
 
         <main class="content-container">
-            <div class="entries">
-                <h2> No entries  yet.</h2>
+            <div class="new_entry">
+                <h2> Add a new entry</h2>
+                <input type="checkbox" id="toggle">
+                <label for="toggle">
+                    <img src="../images/new_entry.png" alt="new entry" title="Add New Entry">
+                </label>
+                <div class="entry-form">
+                    <form action="">
+                        <label for="date">Chose Date:
+                            <input type="date" id="date">
+                        </label>
+
+                        <label for="title">Title:
+                            <input type="text" id="title">
+                        </label>
+
+                        <label for="content">Take notes:
+                            <textarea name="content" id="content" cols="10" rows="5"></textarea>
+                        </label>
+
+                        <button type="submit">Add</button>
+                    </form>
+                </div>
             </div>
         </main> 
 
@@ -49,6 +69,6 @@
     <footer class="footer">
         <p>&copy; <script>document.write(new Date().getFullYear());</script>&nbsp; My&nbsp; Diary</p>
     </footer>
-    <script type="text/javascript" src="../js/entries.js"></script>
+    <script type="text/javascript" src="../js/new_entry.js"></script>
 </body>
 </html>
