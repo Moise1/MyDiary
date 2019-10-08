@@ -153,9 +153,6 @@ body {
         }
     }
 
-
-
-
     .content-container {
         height: 520px; 
         position: relative;
@@ -169,8 +166,6 @@ body {
         margin-top: 40px;
     }
 
-
-    
 
     .content-container form {
         top: 20%;

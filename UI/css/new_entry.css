@@ -157,17 +157,18 @@ body {
 
 
     .content-container {
-        height: 700px; 
+        height: 500px; 
+        margin: 30px 0 0 0;
         position: relative;
         animation: fadeIn ease-in 2s;
-
-        
     }
    
     .new_entry {
         position: relative;
         justify-items: center;
-        height:500px;
+        margin: -20px 0 0 0;
+        border: 2px solid red;
+        height: 500;
     }
     
 
@@ -185,7 +186,6 @@ body {
         height: 50px; 
         width: 50px; 
         border-radius: 50%;
-        border: green;
      }
 
     input[type="checkbox"]{
@@ -197,18 +197,55 @@ body {
     /* New entry form starts */
 
     .entry-form {
-        
-        transform: scaleY(0);
-        transform-origin: center top 0;
-        /* margin-top: 4%;
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+        -webkit-transform: scaleY(0);
+        -moz-transform: scaleY(0);
+        -o-transform: scaleY(0);
+        -ms-transform: scaleY(0);
+        -webkit-transform-origin: center top 0;
+        -moz-transform-origin: center top 0;
+        -o-transform-origin: center top 0;
+        -ms-transform-origin: center top 0;
+    }
+
+    .toggle {
+        -webkit-transition: all 0.3s ease 0s;
+        -moz-transition: all 0.3s ease 0s;
+        -o-transition: all 0.3s ease 0s;
+        transition: all 0.3s ease 0s;
+    }
+
+    #toggle:checked ~ .entry-form {
+        -webkit-transform: scaleY(1);
+        -moz-transform: scaleY(1);
+        -o-transform: scaleY(1);
+        -ms-transform: scaleY(1);
+        margin-top: 5%;
         left: 35%;
         padding: 0 100px 0 100px;
         position: absolute;
-        height: 350px; */
-    }
+        height: 350px;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+  }
 
     input[type="checkbox"]:checked ~ .entry-form {
-        transform: scaleY(1)
+        transform: scaleY(1); 
+        margin-top: 4%;
+        left: 35%;
+        padding: 0 100px 0 100px;
+        position: absolute;
+    }
+
+    .entry-form {
+        margin-top: 4%;
+        left: 35%;
+        padding: 0 100px 0 100px;
+        position: absolute;
+        height: 350px;
+        border: 2px solid yellow;
     }
 
      label{
@@ -221,7 +258,8 @@ body {
         padding: 5px;
         border-radius: 5px;
         border: 1px solid #000; 
-
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+        font-size: 15px;
     }
     .entry-form label > input, textarea:focus {
         outline: none;
@@ -237,6 +275,9 @@ body {
         border: none; 
         cursor: pointer;
         border-radius: 5px;
+        font-size: 15px;
+        color: #fff;
+        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
     .entry-form button:focus{
@@ -249,11 +290,11 @@ body {
         position: absolute;
         left: 0; 
         right: 0;
-        bottom: 20px;
+        bottom: 5px;
     }
 
     .footer p {
-        margin: 10px 0 0 0;
+        margin: 90px 0 0 0;
         padding:0;
         text-align: center;
         font-size: 25px;
@@ -775,92 +816,13 @@ body {
     }
 
 
-
-
     .content-container {
         height: 520px; 
         position: relative;
-        animation: fadeIn ease-in 2s;
-
-        
+        animation: fadeIn ease-in 2s;        
     }
-
-    .content-container h1{
-        text-align: center;
-        margin-top: 40px;
-    }
-
 
     
-
-    .content-container form {
-        top: 15%;
-        right: 10%; 
-        left: 10%;
-        padding: 30px; 
-        position: absolute;
-        width: 60%;
-    }
-
-    .content-container div > input {
-         width: 100%;
-         border: none; 
-         padding: 10px 0 20px 10px;
-         border-bottom: 1px solid #000;
-         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
-         font-size: 20px; 
-    }
-
-    .content-container form input:focus {
-        outline: none;
-    }
-    
-    ::-webkit-input-placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-    :-ms-input-placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-    ::placeholder {
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
-    }
-
-
-    .reg-button {
-        margin: 50px 0 0 45px;
-        font-size: 20px;
-        border-radius: 30%;
-        height: 80px;
-        width: 80px;
-        -moz-border-radius:50%;
-        -webkit-border-radius:50%;
-        position: relative;
-        cursor: pointer;
-        background: #FF5733;
-        border: none;
-        position: absolute;
-
-    }
-
-    .reg-button:focus {
-        outline: none;
-    }
-
-    .reg-button p {
-        top: 10px;
-        left: 10px;
-        color: #FDFEFE;
-        position: absolute;
-        text-align: center;
-        font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
-
-
-    }
     .footer {
         position: absolute;
         left: 0; 
