@@ -21,8 +21,7 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                  <a href="../index.html">Back</a>
-                  <a href="entries.html">All Entries</a>
+                  <a href="entries.html">Back</a>
                   <a href="#">Settings</a>
                   <a href="#">Share</a>
                   <a href="#">Feedback</a>
@@ -46,19 +45,19 @@
                 </label>
                 <div class="entry-form">
                     <form action="">
-                        <label for="date">Chose Date:
+                        <label for="date">Choose Date:
                             <input type="date" id="date">
                         </label>
 
                         <label for="title">Title:
-                            <input type="text" id="title">
+                            <input type="text" id="title" autocomplete="off">
                         </label>
 
-                        <label for="content">Take notes:
-                            <textarea name="content" id="content" cols="10" rows="5"></textarea>
+                        <label for="content">Notes:
+                            <textarea name="content" id="content" cols="10" rows="2"></textarea>
                         </label>
 
-                        <button type="submit">Add</button>
+                        <button type="submit" id="addBtn">Add</button>
                     </form>
                 </div>
             </div>
