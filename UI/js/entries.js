@@ -21,3 +21,19 @@ const openNav = ()=>{
 const closeNav = ()=>{
     document.getElementById("myNav").style.width = "0%";
 }
+
+
+const coll = document.getElementsByClassName("foldable");
+let i;
+
+for(i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function(){
+    this.classList.toggle("active");
+    const content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+  });
+}

@@ -154,10 +154,7 @@ body {
     }
 
 
-
-
     .content-container {
-        height: 520px; 
         position: relative;
         animation: fadeIn ease-in 2s;
     }
@@ -178,12 +175,65 @@ body {
         cursor: pointer;
      }
 
-    
+
+    .foldables{
+        align-items: center;
+        margin: 5% 60% 0 30%;
+        width: 50%;
+    }
+
+
+    .foldable {
+        background-color: #000;
+        color: white;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: none;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+      }
+      
+      .active, .foldable:hover {
+        background-color: rgba(255, 87, 51, 3);
+       
+      }
+      
+      .foldable:after {
+        content: '\002B';
+        color: white;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+      
+      .active:after {
+        content: "\2212";
+      }
+      
+      .content {
+        padding: 0 18px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+        background-color: #fff; 
+        border-radius: 5px;
+        border-bottom: 1px solid #fff;
+      }
+
+      .content p {
+          color: #000; 
+          font-size: 19px; 
+          padding: 15px;
+      }
+
+
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
-        bottom: 20px;
+        bottom: 5px;
     }
 
     .footer p {

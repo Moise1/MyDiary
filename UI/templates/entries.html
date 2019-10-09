@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="shortcut icon" type="image/x-icon"   href="../images/book.png">
+    <link rel="shortcut icon" type="image/x-icon" href="../images/book.png">
     <link rel="stylesheet" href="../css/entries.css">
     <title>My Diary | Entries</title>
 </head>
+
 <body>
     <div class="main-container">
         <header class="header">
@@ -21,34 +23,61 @@
             <div id="myNav" class="overlay">
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
-                  <a href="../index.html">Back</a>
-                  <a href="new_entry.html">New Entry</a>
-                  <a href="entries.html">All Entries</a>
-                  <a href="#">Settings</a>
-                  <a href="#">Share</a>
-                  <a href="#">Feedback</a>
-                  <a href="#">Log out</a>
+                    <a href="../index.html">Back</a>
+                    <a href="new_entry.html">New Entry</a>
+                    <a href="entries.html">All Entries</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Share</a>
+                    <a href="#">Feedback</a>
+                    <a href="#">Log out</a>
 
                 </div>
                 <div class="overlay-footer">
-                    <p>&copy; <script>document.write(new Date().getFullYear());</script>&nbsp; My&nbsp; Diary</p>
+                    <p>&copy; <script>
+                            document.write(new Date().getFullYear());
+                        </script>&nbsp; My&nbsp; Diary</p>
                 </div>
-              </div>
+            </div>
 
-              <span class="burger-menu"  onclick="openNav()">&#9776;</span>
+            <span class="burger-menu" onclick="openNav()">&#9776;</span>
         </header>
 
         <main class="content-container">
             <div class="entries">
-                <h2> No entries  yet.</h2>
+                <h2> All Entries</h2>
+
+                <div class="foldables">
+                    <button class="foldable">My First Line of Code | &nbsp;&nbsp; October 9, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <button class="foldable">My First Bicycle Ride |&nbsp; October 9, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <button class="foldable">My First Grip On A Guitar |&nbsp; October 9, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+    
+                </div>
             </div>
-        </main> 
+        </main>
 
-    </div>
+        <footer class="footer">
+            <p>&copy; <script>
+                    document.write(new Date().getFullYear());
+                </script>&nbsp; My&nbsp; Diary</p>
+        </footer>
 
-    <footer class="footer">
-        <p>&copy; <script>document.write(new Date().getFullYear());</script>&nbsp; My&nbsp; Diary</p>
-    </footer>
+    </div> 
     <script type="text/javascript" src="../js/entries.js"></script>
 </body>
+
 </html>
