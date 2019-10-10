@@ -21,3 +21,27 @@ const openNav = ()=>{
 const closeNav = ()=>{
     document.getElementById("myNav").style.width = "0%";
 }
+
+
+const fold = document.getElementsByClassName("foldable");
+const imgs = document.getElementById("icons"); 
+let i;
+
+for(i = 0; i < fold.length; i++) {
+  fold[i].addEventListener("click", function(){
+    this.classList.toggle("active");
+    const content = this.nextElementSibling;
+        if (content.style.maxHeight){
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        } 
+  });
+}
+
+imgs.style.visibility = "hidden";
+for(i= 0; i < fold.length; i++){
+  fold[i].addEventListener("click", (()=>{
+    imgs.style.visibility ="visible";
+  }))
+}

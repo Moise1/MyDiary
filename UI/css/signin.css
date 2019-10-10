@@ -153,9 +153,6 @@ body {
         }
     }
 
-
-
-
     .content-container {
         height: 520px; 
         position: relative;
@@ -169,8 +166,6 @@ body {
         margin-top: 40px;
     }
 
-
-    
 
     .content-container form {
         top: 20%;
@@ -242,7 +237,7 @@ body {
 
     }
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -491,7 +486,7 @@ body {
 
     }
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -741,7 +736,7 @@ body {
 
     }
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -1012,7 +1007,7 @@ body {
 
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
