@@ -295,10 +295,10 @@ body {
 
     /* Footer starts */
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
-        bottom: -40px;
+        bottom: 5px;
         height: 30px;
     }
 
@@ -416,7 +416,7 @@ body {
         left: 0; 
         right: 0;
         bottom: 10px;
-        position: absolute;
+        position: fixed;
     }
 
     .overlay-footer p {
@@ -587,7 +587,7 @@ body {
     /* New entry form ends */
 
        .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -881,7 +881,7 @@ input[type="checkbox"]:checked ~ .entry-form {
 
     /* New Entry form ends */
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -1183,7 +1183,7 @@ input[type="checkbox"]:checked ~ .entry-form {
     
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 2px;

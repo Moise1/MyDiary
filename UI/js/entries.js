@@ -23,11 +23,12 @@ const closeNav = ()=>{
 }
 
 
-const coll = document.getElementsByClassName("foldable");
+const fold = document.getElementsByClassName("foldable");
+const imgs = document.getElementById("icons"); 
 let i;
 
-for(i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function(){
+for(i = 0; i < fold.length; i++) {
+  fold[i].addEventListener("click", function(){
     this.classList.toggle("active");
     const content = this.nextElementSibling;
         if (content.style.maxHeight){
@@ -36,4 +37,11 @@ for(i = 0; i < coll.length; i++) {
           content.style.maxHeight = content.scrollHeight + "px";
         } 
   });
+}
+
+imgs.style.visibility = "hidden";
+for(i= 0; i < fold.length; i++){
+  fold[i].addEventListener("click", (()=>{
+    imgs.style.visibility ="visible";
+  }))
 }

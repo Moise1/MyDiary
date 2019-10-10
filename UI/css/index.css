@@ -139,7 +139,7 @@ body {
     } 
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
@@ -283,11 +283,8 @@ body {
     } 
 
 
-    
-
-
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
@@ -433,7 +430,7 @@ body {
 
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
@@ -577,7 +574,7 @@ body {
 
 
     .footer {
-        position: absolute;
+        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
