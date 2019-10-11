@@ -27,8 +27,13 @@ const fold = document.getElementsByClassName("foldable");
 const imgs = document.getElementById("icons"); 
 let i;
 
+
+imgs.style.visibility = "hidden";
+
 for(i = 0; i < fold.length; i++) {
   fold[i].addEventListener("click", function(){
+    imgs.style.visibility ="visible";
+
     this.classList.toggle("active");
     const content = this.nextElementSibling;
         if (content.style.maxHeight){
@@ -39,9 +44,7 @@ for(i = 0; i < fold.length; i++) {
   });
 }
 
-imgs.style.visibility = "hidden";
-for(i= 0; i < fold.length; i++){
-  fold[i].addEventListener("click", (()=>{
-    imgs.style.visibility ="visible";
-  }))
+const editContent = ()=>{ 
+  document.querySelectorAll(".foldable, .content").contentEditable="true";
+
 }
