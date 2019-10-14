@@ -1,14 +1,14 @@
 import users from "../models/userModel"; 
 import {signUpFields, loginFields} from "../helpers/userValidator" 
-import encryptor from "../helpers/password"; 
+import {hashingPassword, isSame} from "../helpers/password";
 import lodash from "lodash";  
 import ResponseHandler from "../utils/responseHandler"; 
 import tokenMan from "../helpers/tokenMan"; 
 
 
 class User {
-    
-    static async userSignUp(req, res){
+
+    static async SignUp(req, res){
         const {error} = signUpFields(req.body); 
         if(error){
             return res 
@@ -17,7 +17,7 @@ class User {
         }
 
         const {first_name, last_name, email, password} = req.body;
-        const encrypted_password = await encryptor.hashingPassword(password, 10); 
+        const encrypted_password = await hashingPassword(password, 10); 
         
         try{
             const new_user = {
@@ -54,8 +54,59 @@ class User {
             .json(new ResponseHandler(500, error.message, null).result())
         }
 
-
     }
+
+    static async SignIn(req, res){
+
+        const {error} = loginFields(req.body); 
+        if(error){
+            return res 
+            .status(400) 
+            .json(new ResponseHandler(400, error.details[0].message, null).result());
+        }
+
+
+        try{
+            const {email, password} = req.body; 
+
+            const findUser = users.find(user => user.email === email); 
+            if(!findUser) {
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404, `User with email ${email} not found!`, null).result())
+            }
+    
+            const matcher = await isSame(password,findUser.password);
+    
+            if(!matcher){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(401, "Invalid Password.", null).result())
+            } 
+    
+            const token = tokenMan.tokenizer({
+                user_id: findUser.user_id, 
+                email: findUser.email
+            })
+    
+            const returned_response = {
+                token: token,
+                ...lodash.omit(findUser, ["password"])
+            }
+            
+            return res
+            .header("Authorization", `Bearer ${token}`)
+            .status(200) 
+            .json(new ResponseHandler(200, "Successfully Signed In", returned_response).result())
+
+        }catch(error){
+            return 
+            .status(500)
+            .json(new ResponseHandler(500, error.message, null).result())
+        }
+        
+    }
+
 } 
 
 
