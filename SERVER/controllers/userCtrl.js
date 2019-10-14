@@ -65,6 +65,7 @@ class User {
             .json(new ResponseHandler(400, error.details[0].message, null).result());
         }
 
+
         try{
             const {email, password} = req.body; 
 
@@ -90,22 +91,21 @@ class User {
     
             const returned_response = {
                 token: token,
-                ...lodash.omit(findUser, ["password"]) 
+                ...lodash.omit(findUser, ["password"])
             }
             
-            return res 
+            return res
             .header("Authorization", `Bearer ${token}`)
             .status(200) 
             .json(new ResponseHandler(200, "Successfully Signed In", returned_response).result())
 
         }catch(error){
-            return res 
+            return 
             .status(500)
             .json(new ResponseHandler(500, error.message, null).result())
         }
         
     }
-    
 
 } 
 
