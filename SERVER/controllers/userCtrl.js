@@ -7,6 +7,7 @@ import tokenMan from "../helpers/tokenMan";
 
 
 class User {
+    
     static async userSignUp(req, res){
         const {error} = signUpFields(req.body); 
         if(error){
