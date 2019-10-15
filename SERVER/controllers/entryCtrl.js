@@ -75,6 +75,33 @@ class Entry {
            .json(new ResponseHandler(500, error.message, null).result())
        }
     }
+
+    static async updateEntry(req, res){
+
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
+
+        try{
+
+            if(!theEntry){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404,`Sorry! Entry number ${req.params.entry_id} not found`, null).result())
+            }
+
+            theEntry.title = req.body.title || theEntry.title; 
+            theEntry.description = req.body.description || theEntry.description; 
+
+            return res 
+            .status(200)
+            .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully updated!`, theEntry, null).result())
+
+        }catch(error){
+            return res 
+            .status(500)
+            .json(new ResponseHandler(500, error.message, null).result())
+        }
+
+    }
 } 
 
 
