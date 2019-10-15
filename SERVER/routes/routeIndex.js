@@ -1,6 +1,8 @@
 import express from "express";
-import User from "../controllers/userCtrl"; 
 import { json, Router} from "express"; 
+import User from "../controllers/userCtrl";
+import Entry from "../controllers/entryCtrl"; 
+
 
 
 const router = express.Router(); 
@@ -8,8 +10,12 @@ router.use(json());
 
 // User router 
 
-router.post("/auth/signup", User.SignUp); 
-router.post("/auth/signin", User.SignIn);
+router.post("/api/v1/auth/signup", User.SignUp); 
+router.post("/api/v1/auth/signin", User.SignIn);
 
+
+// Entry router 
+
+router.post("/api/v1/entries", Entry.addEntry)
 
 export default router;
