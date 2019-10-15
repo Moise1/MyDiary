@@ -58,12 +58,24 @@ class Entry {
 
         const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
 
+       try{
         if(!theEntry){
             return res 
             .status(404)
-            .json(new ResponseHandler(404, `Sorry! Entry number ${theEntry} not found`, null).result())
+            .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
         }
+
+        return res 
+        .status(200)
+        .json(new ResponseHandler(200, "Your Entry!", theEntry, null).result());
+
+       }catch(error){
+           return res 
+           .status(500)
+           .json(new ResponseHandler(500, error.message, null).result())
+       }
     }
 } 
+
 
 export default Entry;

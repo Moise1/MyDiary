@@ -15,8 +15,9 @@ router.post("/api/v1/auth/signin", User.SignIn);
 
 
 // Entry router 
-
 router.post("/api/v1/entries", Entry.addEntry); 
-router.get("/api/v1/entries", Entry.allEntries)
+router.get("/api/v1/entries", Entry.allEntries);
+router.get("/api/v1/entries/:entry_id", Entry.singleEntry);
+
 
 export default router;
