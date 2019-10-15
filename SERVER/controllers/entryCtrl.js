@@ -55,7 +55,14 @@ class Entry {
     }
 
     static async singleEntry(req, res){
-        
+
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
+
+        if(!theEntry){
+            return res 
+            .status(404)
+            .json(new ResponseHandler(404, `Sorry! Entry number ${theEntry} not found`, null).result())
+        }
     }
 } 
 
