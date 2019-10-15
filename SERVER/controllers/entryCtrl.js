@@ -53,6 +53,10 @@ class Entry {
             .json(new ResponseHandler(500, error.message, null).result())
         }
     }
+
+    static async singleEntry(req, res){
+        
+    }
 } 
 
 export default Entry;
