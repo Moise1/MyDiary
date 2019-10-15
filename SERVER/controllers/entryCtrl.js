@@ -5,6 +5,7 @@ import ResponseHandler from "../utils/responseHandler";
 
 
 class Entry {
+    
     static async addEntry(req, res){
 
         const {error} = entryFields(req.body);
@@ -14,20 +15,30 @@ class Entry {
             .json(new ResponseHandler(400, error.details[0].message, null).result());
         }
 
-        let date = moment(); 
-        const created_on = date.format('YYYY-MM-DD');
-        const {title, description} = req.body;
+        try{
 
-        const new_entry = {
-            entry_id: entries.length + 1, 
-            title: title, 
-            description: description,
-            ...created_on 
+            let date = moment(); 
+            const created_on = date.format("YYYY-MM-DD | LT");
+            const {title, description} = req.body;
+    
+            const new_entry = {
+                entry_id: entries.length + 1, 
+                title: title, 
+                description: description,
+                created_on
+            }
+    
+            entries.push(new_entry); 
+            return res 
+            .status(201) 
+            .json(new ResponseHandler(201, "Entry successfully created", entries[entries.length -1], null).result())
+            
+        }catch(error){
+            return res 
+            .status(500)
+            .json(new ResponseHandler(500, error.message, null).result());
         }
-
-        entries.push(new_entry); 
-        return res 
-        .status(201) 
-        .json(new ResponseHandler(201, "Entry successfully created", entries[entries.length -1], null).result())
     }
-}
+} 
+
+export default Entry;

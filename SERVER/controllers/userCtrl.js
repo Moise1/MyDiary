@@ -100,7 +100,7 @@ class User {
             .json(new ResponseHandler(200, "Successfully Signed In", returned_response, null).result())
 
         }catch(error){
-            return 
+            return res
             .status(500)
             .json(new ResponseHandler(500, error.message, null).result())
         }
