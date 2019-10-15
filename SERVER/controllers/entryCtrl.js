@@ -39,6 +39,24 @@ class Entry {
             .json(new ResponseHandler(500, error.message, null).result());
         }
     }
+
+    static async allEntries(req, res){
+
+        try{
+            return res 
+            .status(200)
+            .json(new ResponseHandler(200, "All Entries", entries.reverse(), null).result())
+
+        }catch(error){
+            return res 
+            .status(500)
+            .json(new ResponseHandler(500, error.message, null).result())
+        }
+    }
+
+    static async singleEntry(req, res){
+        
+    }
 } 
 
 export default Entry;
