@@ -230,4 +230,15 @@ it("Should not delete a single entry if the entry_id doesn't exist", (done)=>{
 
 });
 
+it("Should warn a user when the url path is wrong", (done) => {
+    chai
+      .request(app)
+      .get("/fxd/hy")
+      .end((err, res) => {
+        expect(res.body.status).to.be.eql(405);
+        expect(res.body.message).to.be.eql("Method Not Allowed!");
+        done();
+      });
+  });
+
 })
