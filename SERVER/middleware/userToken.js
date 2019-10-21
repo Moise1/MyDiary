@@ -1,13 +1,13 @@
 import jwt from "jsonwebtoken";
-import devKeys from "../config/config";
+import devKeys from "../config/dev";
 import ResponseHandler from "../utils/responseHandler";
 
 
 const tokenExists = (req, res, next) => {
-  if (req.headers.authorization === undefined) {
+  if (req.headers.authorization === " " || req.headers.authorization === undefined) {
     return res
       .status(400)
-      .json(new ResponseHandler(400, "Sorry, no token provided!", null).result());
+      .json(new ResponseHandler(400, "Sorry! No token provided!", null).result());
   }
   next();
 };

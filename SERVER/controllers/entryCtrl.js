@@ -16,7 +16,6 @@ class Entry {
         }
 
         try{
-
             let date = moment(); 
             const created_on = date.format("YYYY-MM-DD | LT");
             const {title, description} = req.body;
@@ -31,7 +30,7 @@ class Entry {
             entries.push(new_entry); 
             return res 
             .status(201) 
-            .json(new ResponseHandler(201, "Entry successfully created", entries[entries.length -1], null).result())
+            .json(new ResponseHandler(201, "Entry successfully created.", entries[entries.length -1], null).result())
             
         }catch(error){
             return res 
@@ -45,7 +44,7 @@ class Entry {
         try{
             return res 
             .status(200)
-            .json(new ResponseHandler(200, "All Entries", entries.reverse(), null).result())
+            .json(new ResponseHandler(200, "All Entries.", entries.reverse(), null).result())
 
         }catch(error){
             return res 
@@ -117,6 +116,7 @@ class Entry {
 
             const index = entries.indexOf(theEntry); 
             entries.splice(index, 1); 
+            
             return res 
             .status(200) 
             .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully deleted!`, null).result())
