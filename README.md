@@ -1,3 +1,8 @@
+[![Build Status](https://travis-ci.com/Moise1/MyDiary.svg?branch=develop)](https://travis-ci.com/Moise1/MyDiary)
+[![Coverage Status](https://coveralls.io/repos/github/Moise1/MyDiary/badge.svg?branch=develop)](https://coveralls.io/github/Moise1/MyDiary?branch=develop)
+[![Maintainability](https://api.codeclimate.com/v1/badges/3ac9c5c692eb1267158b/maintainability)](https://codeclimate.com/github/Moise1/MyDiary/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/3ac9c5c692eb1267158b/test_coverage)](https://codeclimate.com/github/Moise1/MyDiary/test_coverage)
+
 # MyDiary 
 
 [My Diary](https://moise1.github.io/MyDiary/UI/) is an online journal where users can pen down their thoughts and feelings. 
