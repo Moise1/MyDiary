@@ -8,7 +8,7 @@ const signUpFields = (user) => {
       .required().error(()=> 'last_name must be a string'),
     email: Joi.string().email({ minDomainAtoms: 2 }).trim().required().error(() => 'email must be a valid email'),
     password: Joi.string().regex(/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/)
-      .required().error(() => "password must be at least 8 characters long containing 1 capital letter, 1 small letter, 1 digit and 1 of these special characters(@, $, !, %, *, ?, &) ")
+      .required().error(() => "password must be at least 8 characters long containing 1 capital letter, 1 small letter, 1 digit and 1 of these special characters(@, $, !, %, *, ?, &)")
 
   })
 

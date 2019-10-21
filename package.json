@@ -4,8 +4,10 @@
   "description": "MyDiary is an online journal where users can pen down their thoughts and feelings.",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "babel-watch ./SERVER/server.js"
+    "start": "babel-watch ./SERVER/server.js",
+    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
+    "coveralls": "nyc report --reporter=text-lcov | coveralls",
+    "lint": "./node_modules/.bin/eslint --fix ./SERVER/**/*.js"
   },
   "repository": {
     "type": "git",

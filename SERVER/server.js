@@ -1,5 +1,6 @@
 import express from "express";
 import router from "./routes/routeIndex";
+import ResponseHandler from "../SERVER/utils/responseHandler";
 
 
 const app = express();
@@ -9,16 +10,14 @@ app.use(express.json());
 
 app.use(router);
 
-app.get("/", (req, res) => res.status(200).json({
-  status: 200,
-  message: "Welcome to My Diary!",
-}));
+app.get("/", (req, res) => res
+.status(200)
+.json(new ResponseHandler(200, "Welcome to My Diary!", null).result()));
 
 
-app.use("*", (req, res) => res.status(405).json({
-  status: 405,
-  message: "Method Not Allowed!",
-}));
+app.use("*", (req, res) => res
+.status(405)
+.json(new ResponseHandler(405, "Method Not Allowed!", null).result()));
 
 
 // eslint-disable-next-line
