@@ -59,12 +59,34 @@ body {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
+    .reg-buttons {
+        position: absolute;
+        left: 75%;  
+        top: 21%;
+        display: flex;  
+        justify-content: space-between; 
+        padding: 10px 0; 
+
+    }
+
+    .reg-buttons a {
+        color: #fff; 
+        padding: 30px 10px  10px;
+        font-size: 19px;
+        border-radius: 30%;
+        height: 75px;
+        width: 75px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: 10px 22px 0 0;
+        background: #FF5733;
+    }
 
     .burger-menu {
         font-size:30px;
         cursor:pointer;
         float: right; 
-        margin:35px 30px 0 0;
+        margin:55px 30px 0 0;
         color: #FDFEFE;
     }
     .overlay {
@@ -194,11 +216,34 @@ body {
     }
 
 
+    .reg-buttons {
+        position: absolute;
+        left: 75%;  
+        top: 21%;
+        display: flex;  
+        justify-content: space-between; 
+        padding: 10px 0; 
+
+    }
+
+    .reg-buttons a {
+        color: #fff; 
+        padding: 30px 10px  10px;
+        font-size: 19px;
+        border-radius: 30%;
+        height: 75px;
+        width: 75px;
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: 10px 22px 0 0;
+        background: #FF5733;
+    }
+
     .burger-menu {
         font-size:30px;
         cursor:pointer;
         float: right; 
-        margin:35px 30px 0 0;
+        margin:55px 30px 0 0;
         color: #FDFEFE;
     }
     .overlay {
@@ -339,6 +384,9 @@ body {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
+    .reg-buttons {
+        display: none;
+    }
 
     .burger-menu {
         font-size:30px;
@@ -485,6 +533,10 @@ body {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
+
+    .reg-buttons{
+        display: none;
+    }
 
     .burger-menu {
         font-size:30px;

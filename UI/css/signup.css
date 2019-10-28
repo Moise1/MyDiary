@@ -209,7 +209,7 @@ body {
 
     ::placeholder {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif; 
-        font-size: 18px;
+        font-size: 19px;
     }
 
 
@@ -241,9 +241,18 @@ body {
         position: absolute;
         text-align: center;
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
 
+    .alternative {
+        text-align: center; 
+        font-size: 20px 
+    } 
+
+    .alternative a {
+        color: #FF5733;
 
     }
+
     .footer {
         position: absolute;
         left: 0; 
