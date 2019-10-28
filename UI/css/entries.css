@@ -23,7 +23,6 @@ body {
     .main-container {
         display: grid; 
         overflow: hidden;
-
     }
 
     .header {
@@ -157,6 +156,7 @@ body {
     .content-container {
         position: relative;
         animation: fadeIn ease-in 2s;
+        max-height: 800px;
     }
    
     .entries {
@@ -170,10 +170,80 @@ body {
         margin-top: 50px; 
     }
 
-    .entries img {
-        margin-left: 50%;
-        cursor: pointer;
+
+    /* Icons start */
+
+    /* FoldOne */
+     #foldOne:focus::after {
+       content: url("../images/edit.png");
+       position: absolute;   
+       height: 50px;
+       display: flex;
+       width: 10%;
+       justify-content: space-between;
+       margin-left: 90%; 
+       margin-top: -5%;
      }
+
+
+     #foldOne:focus::before {
+        content: url("../images/trash.png");
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: -15%; 
+        margin-top: -3%;
+      }
+
+    
+    /* FoldTwo */
+
+     #foldTwo:focus::after {
+        content:url("../images/edit.png"); 
+        position: absolute; 
+        height: 50px;
+        display: flex;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: 90%; 
+        margin-top: -5%;
+      }
+
+      #foldTwo:focus::before {
+        content: url("../images/trash.png");
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: -15%; 
+        margin-top: -3%;
+      }
+
+    /* FoldTrhee */
+
+      #foldThree:focus::after {
+        content:url("../images/edit.png"); 
+        position: absolute; 
+        height: 50px;
+        display: flex;
+        width: 10%;
+        margin-left: 90%; 
+        margin-top: -5%;
+      }
+
+
+      #foldThree:focus::before {
+        content: url("../images/trash.png");
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        margin-left: -15%; 
+        margin-top: -3%;
+      }
+ 
+ 
+/* Icons end */
 
 
 /* All entries start */
@@ -181,21 +251,12 @@ body {
 
     .foldables{
         align-items: center;
-        margin: 5% 60% 0 25%;
+        margin: 2% 60% 0 25%;
         width: 50%; 
         padding: 45px; 
         position: relative;
     }
 
-
-    .foldables #icons{
-        position: absolute;
-        top: 0; 
-        display: flex; 
-        left: 40%;
-    }
-
-    
 
     .foldable {
         background-color: #000;
@@ -240,14 +301,14 @@ body {
       .content p {
           color: #000; 
           font-size: 19px; 
-          padding: 15px;
+          padding: 15px; 
+          border: 1px solid #FF5733;
       }
 
 /* All entries end */
 
 
     .footer {
-        position: fixed;
         left: 0; 
         right: 0;
         bottom: 5px;
@@ -407,7 +468,7 @@ body {
 
 
     .content-container {
-        height: 520px; 
+        height: 700px; 
         position: relative;
         animation: fadeIn ease-in 2s;
     }
@@ -417,6 +478,85 @@ body {
         font-weight: initial;
         margin-top: 50px;
     }
+
+
+ /* Icons start */
+
+    /* FoldOne */
+    #foldOne:focus::after {
+        content: url("../images/edit.png");
+        position: absolute;   
+        height: 50px;
+        display: flex;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: 90%; 
+        margin-top: -5%;
+      }
+ 
+ 
+      #foldOne:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+ 
+     
+     /* FoldTwo */
+ 
+      #foldTwo:focus::after {
+         content:url("../images/edit.png"); 
+         position: absolute; 
+         height: 50px;
+         display: flex;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: 90%; 
+         margin-top: -5%;
+       }
+ 
+       #foldTwo:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+ 
+     /* FoldTrhee */
+ 
+       #foldThree:focus::after {
+         content:url("../images/edit.png"); 
+         position: absolute; 
+         height: 50px;
+         display: flex;
+         width: 10%;
+         margin-left: 90%; 
+         margin-top: -5%;
+       }
+ 
+ 
+       #foldThree:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+  
+  
+ /* Icons end */
+
+
+
+
 
     /* All entries start  */
 
@@ -476,6 +616,8 @@ body {
           color: #000; 
           font-size: 19px; 
           padding: 15px;
+          border: 1px solid #FF5733;
+
       }
 
       /* All entries end  */ 
@@ -511,8 +653,6 @@ body {
 
     .main-container {
         display: grid; 
-        overflow: hidden;
-
     }
 
     .header {
@@ -717,12 +857,13 @@ body {
           color: #000; 
           font-size: 19px; 
           padding: 15px;
+          border: 1px solid #FF5733;
+
       }
 
       /* All entries end */
 
     .footer {
-        position: fixed;
         left: 0; 
         right: 0;
         bottom: 20px;
@@ -736,6 +877,78 @@ body {
     }
 
     
+
+     /* Icons start */
+
+    /* FoldOne */
+    #foldOne:focus::after {
+        content: url("../images/edit.png");
+        height: 50px;
+        display: flex;
+        width: 10%;
+        margin-left: 95%; 
+        margin-top: 15%;
+      }
+ 
+ 
+      #foldOne:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+ 
+     
+     /* FoldTwo */
+ 
+      #foldTwo:focus::after {
+         content:url("../images/edit.png"); 
+         position: absolute; 
+         height: 50px;
+         display: flex;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: 90%; 
+         margin-top: -5%;
+       }
+ 
+       #foldTwo:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         justify-content: space-between;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+ 
+     /* FoldTrhee */
+ 
+       #foldThree:focus::after {
+         content:url("../images/edit.png"); 
+         position: absolute; 
+         height: 50px;
+         display: flex;
+         width: 10%;
+         margin-left: 90%; 
+         margin-top: -5%;
+       }
+ 
+ 
+       #foldThree:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         margin-left: -15%; 
+         margin-top: -3%;
+       }
+  
+  
+ /* Icons end */
 
     .footer p {
         margin: 10px 0 0 0;
@@ -960,13 +1173,84 @@ body {
           color: #000; 
           font-size: 19px; 
           padding: 15px;
+          border: 1px solid #FF5733;
       }
 
       /* All entries end */
-    
+
+      
+
+       /* Icons start */
+
+    /* FoldOne */
+    #foldOne:focus::after {
+        content:url("../images/edit.png"); 
+        position: absolute; 
+        height: 50px;
+        display: flex;
+        width: 10%;
+        margin-left: 50%; 
+        margin-top: -8%;
+      }
+
+
+      #foldOne:focus::before {
+        content: url("../images/trash.png");
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        margin-left: -17%; 
+        margin-top: 3%;
+      }
+     
+     /* FoldTwo */
+ 
+     #foldTwo:focus::after {
+        content:url("../images/edit.png"); 
+        position: absolute; 
+        height: 50px;
+        display: flex;
+        width: 10%;
+        margin-left: 50%; 
+        margin-top: -8%;
+      }
+
+
+      #foldTwo:focus::before {
+        content: url("../images/trash.png");
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        margin-left: -17%; 
+        margin-top: 3%;
+      }
+ 
+     /* FoldThree */
+ 
+       #foldThree:focus::after {
+         content:url("../images/edit.png"); 
+         position: absolute; 
+         height: 50px;
+         display: flex;
+         width: 10%;
+         margin-left: 50%; 
+         margin-top: -8%;
+       }
+ 
+ 
+       #foldThree:focus::before {
+         content: url("../images/trash.png");
+         position: absolute;   
+         height: 50px;
+         width: 10%;
+         margin-left: -17%; 
+         margin-top: 3%;
+       }
+  
+  
+ /* Icons end */
   
     .footer {
-        position: fixed;
         left: 0; 
         right: 0;
         bottom: 10px;
