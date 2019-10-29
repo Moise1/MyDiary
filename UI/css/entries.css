@@ -173,73 +173,46 @@ body {
 
     /* Icons start */
 
-    /* FoldOne */
-     #foldOne:focus::after {
-       content: url("../images/edit.png");
-       position: absolute;   
-       height: 50px;
-       display: flex;
-       width: 10%;
-       justify-content: space-between;
-       margin-left: 90%; 
-       margin-top: -5%;
-     }
-
 
      #foldOne:focus::before {
         content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
         position: absolute;   
         height: 50px;
         width: 10%;
         justify-content: space-between;
-        margin-left: -15%; 
-        margin-top: -3%;
+        margin-left: 65%; 
       }
 
     
     /* FoldTwo */
 
-     #foldTwo:focus::after {
-        content:url("../images/edit.png"); 
-        position: absolute; 
-        height: 50px;
-        display: flex;
-        width: 10%;
-        justify-content: space-between;
-        margin-left: 90%; 
-        margin-top: -5%;
-      }
 
       #foldTwo:focus::before {
         content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
         position: absolute;   
         height: 50px;
         width: 10%;
         justify-content: space-between;
-        margin-left: -15%; 
-        margin-top: -3%;
+        margin-left: 65%; 
       }
 
     /* FoldTrhee */
 
-      #foldThree:focus::after {
-        content:url("../images/edit.png"); 
-        position: absolute; 
-        height: 50px;
-        display: flex;
-        width: 10%;
-        margin-left: 90%; 
-        margin-top: -5%;
-      }
-
-
       #foldThree:focus::before {
         content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
         position: absolute;   
         height: 50px;
         width: 10%;
-        margin-left: -15%; 
-        margin-top: -3%;
+        margin-left: 65%;
       }
  
  
@@ -483,83 +456,54 @@ body {
  /* Icons start */
 
     /* FoldOne */
-    #foldOne:focus::after {
-        content: url("../images/edit.png");
-        position: absolute;   
-        height: 50px;
-        display: flex;
-        width: 10%;
-        justify-content: space-between;
-        margin-left: 90%; 
-        margin-top: -5%;
-      }
- 
  
       #foldOne:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: -15%; 
-         margin-top: -3%;
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: 65%; 
        }
  
      
      /* FoldTwo */
  
-      #foldTwo:focus::after {
-         content:url("../images/edit.png"); 
-         position: absolute; 
-         height: 50px;
-         display: flex;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: 90%; 
-         margin-top: -5%;
-       }
+
  
        #foldTwo:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: -15%; 
-         margin-top: -3%;
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: 65%; 
        }
  
      /* FoldTrhee */
  
-       #foldThree:focus::after {
-         content:url("../images/edit.png"); 
-         position: absolute; 
-         height: 50px;
-         display: flex;
-         width: 10%;
-         margin-left: 90%; 
-         margin-top: -5%;
-       }
- 
- 
        #foldThree:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         margin-left: -15%; 
-         margin-top: -3%;
+          content: url("../images/trash.png");
+          background-image: url("../images/edit.png");
+          background-repeat: no-repeat; 
+          background-position: right top;
+          position: absolute;   
+          height: 50px;
+          width: 10%;
+          justify-content: space-between;
+          margin-left: 65%; 
        }
-  
   
  /* Icons end */
 
 
-
-
-
     /* All entries start  */
-
     .foldables{
         align-items: center;
         margin: 5% 60% 0 30%;
@@ -801,8 +745,8 @@ body {
 
     .foldables{
         align-items: center;
-        margin: 5% 60% 0 30%;
-        width: 50%;
+        margin: 5% 50% 0 15%;
+        width: 70%;
     }
 
 
@@ -881,70 +825,47 @@ body {
      /* Icons start */
 
     /* FoldOne */
-    #foldOne:focus::after {
-        content: url("../images/edit.png");
-        height: 50px;
-        display: flex;
-        width: 10%;
-        margin-left: 95%; 
-        margin-top: 15%;
-      }
- 
- 
+  
       #foldOne:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: -15%; 
-         margin-top: -3%;
-       }
+
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: -25%; 
+    }
  
      
      /* FoldTwo */
  
-      #foldTwo:focus::after {
-         content:url("../images/edit.png"); 
-         position: absolute; 
-         height: 50px;
-         display: flex;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: 90%; 
-         margin-top: -5%;
-       }
- 
        #foldTwo:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         justify-content: space-between;
-         margin-left: -15%; 
-         margin-top: -3%;
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: -25%; 
        }
  
      /* FoldTrhee */
  
-       #foldThree:focus::after {
-         content:url("../images/edit.png"); 
-         position: absolute; 
-         height: 50px;
-         display: flex;
-         width: 10%;
-         margin-left: 90%; 
-         margin-top: -5%;
-       }
- 
- 
        #foldThree:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         margin-left: -15%; 
-         margin-top: -3%;
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: -25%; 
        }
   
   
@@ -1120,8 +1041,8 @@ body {
 
     .foldables{
         align-items: center;
-        margin: 30% 60% 0 30%;
-        width: 50%;
+        margin: 30% 50% 0 15%;
+        width: 70%;
     }
 
     .foldables #icons{
@@ -1178,74 +1099,53 @@ body {
 
       /* All entries end */
 
-      
+    
 
-       /* Icons start */
+
+
+/* Icons start */
 
     /* FoldOne */
-    #foldOne:focus::after {
-        content:url("../images/edit.png"); 
-        position: absolute; 
-        height: 50px;
-        display: flex;
-        width: 10%;
-        margin-left: 50%; 
-        margin-top: -8%;
-      }
-
 
       #foldOne:focus::before {
         content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
         position: absolute;   
         height: 50px;
         width: 10%;
-        margin-left: -17%; 
-        margin-top: 3%;
+        justify-content: space-between;
+        margin-left: 50%; 
       }
      
      /* FoldTwo */
  
-     #foldTwo:focus::after {
-        content:url("../images/edit.png"); 
-        position: absolute; 
-        height: 50px;
-        display: flex;
-        width: 10%;
-        margin-left: 50%; 
-        margin-top: -8%;
-      }
-
-
       #foldTwo:focus::before {
         content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
         position: absolute;   
         height: 50px;
         width: 10%;
-        margin-left: -17%; 
-        margin-top: 3%;
+        justify-content: space-between;
+        margin-left: 50%;
       }
  
      /* FoldThree */
- 
-       #foldThree:focus::after {
-         content:url("../images/edit.png"); 
-         position: absolute; 
-         height: 50px;
-         display: flex;
-         width: 10%;
-         margin-left: 50%; 
-         margin-top: -8%;
-       }
- 
- 
+      
        #foldThree:focus::before {
-         content: url("../images/trash.png");
-         position: absolute;   
-         height: 50px;
-         width: 10%;
-         margin-left: -17%; 
-         margin-top: 3%;
-       }
+        content: url("../images/trash.png");
+        background-image: url("../images/edit.png");
+        background-repeat: no-repeat; 
+        background-position: right top;
+        position: absolute;   
+        height: 50px;
+        width: 10%;
+        justify-content: space-between;
+        margin-left: 50%; 
+  }
   
   
  /* Icons end */
