@@ -233,9 +233,20 @@ body {
         position: absolute;
         text-align: center;
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
 
+
+    .alternative {
+        text-align: center; 
+        font-size: 20px 
+    } 
+
+    .alternative a {
+        color: #FF5733;
 
     }
+
+    
     .footer {
         position: fixed;
         left: 0; 
