@@ -42,6 +42,12 @@ class Entry {
     static async allEntries(req, res){
 
         try{
+
+            if(entries.length == 0){
+                return res 
+                .status(404) 
+                .json(new ResponseHandler(404, "No entries yet.", null).result())
+            }
             return res 
             .status(200)
             .json(new ResponseHandler(200, "All Entries.", entries.reverse(), null).result())
