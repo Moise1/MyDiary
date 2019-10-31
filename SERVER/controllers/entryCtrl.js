@@ -7,6 +7,7 @@ import moment from "moment";
 import ResponseHandler from "../utils/responseHandler";
 import tokenMan from "../helpers/tokenMan";
 import users from "../models/userModel";
+import { ENETDOWN } from "constants";
 
 
 
@@ -64,27 +65,25 @@ class Entry {
 
         try {
 
-            if (entries.length === 0) {
+            
+            const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
+
+            if (entries.length == 0) {
                 return res
                     .status(404)
                     .json(new ResponseHandler(404, "No entries yet.", null).result())
+
+            }else if(allEntries.length == 0){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404, "Sorry! You haven't created any entry yet.").result())
+            }else{
+                return res 
+                .status(200)
+                .json(new ResponseHandler(200, "All Entries", allEntries.reverse(), null).result())
             }
-
-            const theEntry = entries.find((ent) => {
-                return ent.user_id;
-            })
-
-            if (req.user.user_id !== theEntry.user_id) {
-                return res
-                    .status(403)
-                    .json(new ResponseHandler(403, "Sorry! Only the entry owner allowed!", null).result());
-
-            } else {
-                return res
-                    .status(200)
-                    .json(new ResponseHandler(200, "All Entries.", entries.reverse(), null).result())
-            }
-
+                
+           
         } catch (error) {
             return res
                 .status(500)
@@ -94,21 +93,22 @@ class Entry {
 
     static async singleEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
-
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
+        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
+        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
             if (!theEntry) {
                 return res
                     .status(404)
                     .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            } else if (req.user.user_id !== theEntry.user_id) {
-                return res
-                    .status(403)
-                    .json(new ResponseHandler(403, "Sorry! Only the entry owner allowed!", null).result());
-            } else {
+            }else if(!filteredEntry){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404, "Sorry! You can only view your own entry.", null).result())
+            }else {
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, "Your Entry!", theEntry, null).result());
+                    .json(new ResponseHandler(200, "Your Entry!", filteredEntry, null).result());
             }
         } catch (error) {
             return res
@@ -119,19 +119,20 @@ class Entry {
 
     static async updateEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
-
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
+        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
+        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
 
             if (!theEntry) {
                 return res
                     .status(404)
                     .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            } else if (req.user.user_id !== theEntry.user_id) {
-                return res
-                    .status(403)
-                    .json(new ResponseHandler(403, "Sorry! Only the entry owner allowed!", null).result());
-            } else {
+            }else if(!filteredEntry){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404, "Sorry! You can only update your own entry.", null).result())
+            }else{
                 theEntry.title = req.body.title || theEntry.title;
                 theEntry.description = req.body.description || theEntry.description;
 
@@ -149,19 +150,20 @@ class Entry {
 
     static async deleteEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
-
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
+        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
+        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
 
             if (!theEntry) {
                 return res
                     .status(404)
                     .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            } else if (req.user.user_id !== theEntry.user_id) {
-                return res
-                    .status(403)
-                    .json(new ResponseHandler(403, "Sorry! Only the entry owner allowed!", null).result());
-            } else {
+            }else if(!filteredEntry){
+                return res 
+                .status(404)
+                .json(new ResponseHandler(404, "Sorry! You can only delete your own entry.", null).result())
+            }else {
                 const index = entries.indexOf(theEntry);
                 entries.splice(index, 1);
 
