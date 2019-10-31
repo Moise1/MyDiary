@@ -7,6 +7,7 @@ import moment from "moment";
 import ResponseHandler from "../utils/responseHandler";
 import tokenMan from "../helpers/tokenMan";
 import users from "../models/userModel";
+import slugText from "../utils/slug"; 
 
 
 
@@ -23,18 +24,18 @@ class Entry {
                 .json(new ResponseHandler(400, error.details[0].message, null).result());
         }
 
-        try {
-            let date = moment();
+
+
+        try{
+
+            let date = moment(); 
             const created_on = date.format("YYYY-MM-DD | LT");
-            const {
-                title,
-                description
-            } = req.body;
-
-
+            const {title, description} = req.body;
+            const slug = slugText(title);
             const new_entry = {
-                entry_id: entries.length + 1,
-                title: title,
+                entry_id: entries.length + 1, 
+                title: title, 
+                slug,
                 description: description,
                 user_id: req.user.user_id,
                 created_on
