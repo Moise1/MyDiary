@@ -36,10 +36,11 @@ body {
     }
     .logo-wrapper{
         display: flex;
-        position: absolute;
+        width: 50%;
         left: 20px;
         top: 10px;
         padding: 5px;
+        position: relative;
     }
 
     #diary-text{
@@ -50,12 +51,26 @@ body {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
+  
+
+    .reg-buttons a {
+        position: absolute;
+        color: #fff; 
+        padding: 25px 30px 1px 20px;
+        font-size: 19px;
+        border-radius: 50%;
+        height: 54px; 
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: -3% 22% 0 80%;
+        background: #FF5733;
+    }
 
     .burger-menu {
         font-size:30px;
         cursor:pointer;
         float: right; 
-        margin:35px 30px 0 0;
+        margin:-25px 50px 0 0;
         color: #000;
     }
     .overlay {
@@ -154,6 +169,7 @@ body {
 
 
     .content-container {
+        margin-top: 50px;
         position: relative;
         animation: fadeIn ease-in 2s;
         max-height: 800px;
@@ -167,7 +183,7 @@ body {
     .entries h2{
         text-align: center;
         font-weight: initial;
-        margin-top: 50px; 
+        margin-top: 60px; 
     }
 
 
@@ -322,10 +338,11 @@ body {
     }
     .logo-wrapper{
         display: flex;
-        position: absolute;
+        width: 50%;
         left: 20px;
         top: 10px;
         padding: 5px;
+        position: relative;
     }
 
     #diary-text{
@@ -334,6 +351,28 @@ body {
         font-size: 25px;
         color: #000;
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
+    }
+
+    .reg-buttons {
+        position: absolute;
+        left: 75%;  
+        top: 21%;
+        display: flex;  
+        justify-content: space-between; 
+        padding: 10px 0; 
+
+    }
+    .reg-buttons a {
+        position: absolute;
+        color: #fff; 
+        padding: 25px 30px 1px 20px;
+        font-size: 19px;
+        border-radius: 50%;
+        height: 54px; 
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: -3% 22% 0 80%;
+        background: #FF5733;
     }
 
 
@@ -623,6 +662,18 @@ body {
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
 
+    .reg-buttons a {
+        position: absolute;
+        color: #fff; 
+        padding: 25px 30px 1px 20px;
+        font-size: 19px;
+        border-radius: 50%;
+        height: 54px; 
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: 2% 22% 0 70%;
+        background: #FF5733;
+    }
 
     .burger-menu {
         font-size:30px;
@@ -919,8 +970,18 @@ body {
         color: #000;
         font-family: 'Caveat', cursive, 'Ubuntu', sans-serif;
     }
-
-
+    .reg-buttons a {
+        position: absolute;
+        color: #fff; 
+        padding: 25px 30px 1px 20px;
+        font-size: 19px;
+        border-radius: 50%;
+        height: 54px; 
+        -moz-border-radius:50%;
+        -webkit-border-radius:50%;
+        margin: 2% 22% 0 70%;
+        background: #FF5733;
+    }
     .burger-menu {
         font-size:30px;
         cursor:pointer;
