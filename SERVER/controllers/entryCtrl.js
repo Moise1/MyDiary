@@ -2,6 +2,7 @@ import entries from "../models/entryModel";
 import {entryFields} from "../helpers/entryValidator"; 
 import moment from "moment"; 
 import ResponseHandler from "../utils/responseHandler";
+import slugText from "../utils/slug"; 
 
 
 class Entry {
@@ -16,10 +17,10 @@ class Entry {
         }
 
         try{
+
             let date = moment(); 
             const created_on = date.format("YYYY-MM-DD | LT");
             const {title, description} = req.body;
-    
             const new_entry = {
                 entry_id: entries.length + 1, 
                 title: title, 
