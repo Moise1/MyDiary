@@ -21,9 +21,11 @@ class Entry {
             let date = moment(); 
             const created_on = date.format("YYYY-MM-DD | LT");
             const {title, description} = req.body;
+            const slug = slugText(title);
             const new_entry = {
                 entry_id: entries.length + 1, 
                 title: title, 
+                slug,
                 description: description,
                 created_on
             }
