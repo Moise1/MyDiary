@@ -173,7 +173,7 @@ body {
     
 
     .content-container form {
-        top: 15%;
+        top: 10%;
         right: 40%; 
         left: 40%;
         padding: 30px; 
@@ -245,7 +245,8 @@ body {
 
     .alternative {
         text-align: center; 
-        font-size: 20px 
+        font-size: 20px;
+        margin-bottom: 10px;
     } 
 
     .alternative a {
@@ -257,7 +258,7 @@ body {
         position: absolute;
         left: 0; 
         right: 0;
-        bottom: 20px;
+        bottom: 10px;
     }
 
     .footer p {
