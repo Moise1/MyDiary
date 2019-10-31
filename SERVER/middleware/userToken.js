@@ -31,9 +31,7 @@ const userAccess = (req, res, next) => {
   }
 };
 
-
-
 export {
   tokenExists,
-  userAccess,
+  userAccess
 };

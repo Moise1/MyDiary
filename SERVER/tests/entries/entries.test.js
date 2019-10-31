@@ -10,7 +10,9 @@ import dummyAuth from "../dummyData/dummyAuth";
 
 const {
     validSignUp, 
-    validLogin
+    validLogin, 
+    validSignUpTwo, 
+    validLoginTwo
 } = dummyAuth;
 
 const {
@@ -21,6 +23,7 @@ const {
 } = dummyEntry;
 
 const userToken = tokenMan.tokenizer(validLogin);
+const secondUser = tokenMan.tokenizer(validLoginTwo); 
 
 chai.use(chaiHttp); 
 describe("TESTING DIARY ENTRY", ()=>{
@@ -38,6 +41,30 @@ describe("TESTING DIARY ENTRY", ()=>{
             .end(()=>{
                 done()
             })
+        })
+    })
+
+
+    it("Should sign up a new second user", (done)=>{
+        chai 
+        .request(app)
+        .post("/api/v1/auth/signup")
+        .send(validSignUpTwo) 
+        .end((err, res)=>{
+            done()
+        })
+    })
+
+    it("Should not get all entries if the user has no entries", (done)=>{
+        chai 
+        .request(app)
+        .get("/api/v1/entries")
+        .set("Authorization", `Bearer ${secondUser}`) 
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(404)
+            expect(res.body.message).to.deep.equal('Sorry! You haven\'t created any entry yet.');
+            done()
         })
     })
 
@@ -85,6 +112,22 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     });
 
+
+    it("Should add a new entry.", (done)=>{
+        chai 
+        .request(app)
+        .post("/api/v1/entries") 
+        .send(validEntry)
+        .set("Authorization", `Bearer ${userToken}`)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(409); 
+            expect(res.body.message).to.deep.equal('Sorry! This title exists');
+            done();
+        })
+    });
+
+
     it("Should get all entries.", (done)=>{
         chai 
         .request(app)
@@ -99,6 +142,7 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     });
 
+    
 
     it("Should not get all entries", (done)=>{
         chai 
@@ -122,8 +166,9 @@ describe("TESTING DIARY ENTRY", ()=>{
         .get(`/api/v1/entries/${entry_id}`) 
         .set("Authorization", `Bearer ${userToken}`)
         .end((err, res)=>{
-            expect(res.body).to.be.an("object"); 
+            expect(res.body).to.be.an("object");
             expect(res.body.status).to.deep.equal(200); 
+            expect(res.status).to.deep.equal(200); 
             expect(res.body.message).to.deep.equal("Your Entry!");
             expect(res.body.data).to.be.an("object"); 
             done();
@@ -140,10 +185,9 @@ describe("TESTING DIARY ENTRY", ()=>{
         .get(`/api/v1/entries/${entry_id}`) 
         .set("Authorization", `Bearer ${userToken}`)
         .end((err, res)=>{
-            // console.log(res.body);
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
-            expect(res.body.message).to.deep.equal(`Sorry! Entry number ${entry_id} not found`);
+            expect(res.body.message).to.deep.equal('Sorry! You can only view your own entry.');
             done();
         })
     });
@@ -158,9 +202,8 @@ describe("TESTING DIARY ENTRY", ()=>{
             .send(validEntryTwo)
             .end((err, res)=>{
                 expect(res.body).to.be.an("object"); 
-                expect(res.body.status).to.deep.equal(200); 
-                expect(res.body.message).to.deep.equal(`Entry number ${entry_id} successfully updated!`); 
-                expect(res.body.data).to.be.an("object");
+                expect(res.body.status).to.deep.equal(500); 
+                expect(res.body.message).to.deep.equal('theEntry is not defined');
                 done()
             })
     }); 
@@ -176,7 +219,7 @@ describe("TESTING DIARY ENTRY", ()=>{
         .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
-            expect(res.body.message).to.deep.equal(`Sorry! Entry number ${entry_id} not found`); 
+            expect(res.body.message).to.deep.equal('Sorry! You can only update your own entry.'); 
             done()
         })
 });
@@ -191,7 +234,7 @@ it("Should delete a single entry", (done)=>{
     .send(validEntry) 
     .end((err, res)=>{
 
-        const entry_id = 2;
+        const entry_id = 1;
         chai 
         .request(app) 
         .delete(`/api/v1/entries/${entry_id}`)

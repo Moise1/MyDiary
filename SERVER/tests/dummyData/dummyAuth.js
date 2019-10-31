@@ -5,6 +5,16 @@ export default{
         email: "kabano@gmail.com", 
         password: "Kabano123!"
     }, 
+    validSignUpTwo: {
+        first_name: "kagame", 
+        last_name: "james", 
+        email: "kagame@gmail.com", 
+        password: "Kagame123!"
+    }, 
+    validLoginTwo: {
+        email: "kagame@gmail.com", 
+        password: "Kagame123!"     
+    },
     validLogin: {
         email: "kabano@gmail.com", 
         password: "Kabano123!"        
@@ -15,6 +25,12 @@ export default{
         email: "musa@gmail.com", 
         password: "kabano123"
     }, 
+    invalidSignUpTwo: {
+        first_name: "", 
+        last_name: "kabano", 
+        email: "kabano@gmail.com", 
+        password: "Kabano123!"
+    },
     invalidLogin: {
         email: "musa", 
         password: "Kabano123!" 

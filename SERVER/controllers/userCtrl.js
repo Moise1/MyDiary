@@ -25,7 +25,7 @@ class User {
                 first_name: first_name, 
                 last_name: last_name, 
                 email: email.toLowerCase(), 
-                password: encrypted_password
+                password: encrypted_password, 
             }
     
             if(users.some(user => user.email === email)){
@@ -86,7 +86,7 @@ class User {
     
             const token = tokenMan.tokenizer({
                 user_id: findUser.user_id, 
-                email: findUser.email
+                email: findUser.email, 
             })
     
             const returned_response = {
@@ -97,7 +97,7 @@ class User {
             return res
             .header("Authorization", `Bearer ${token}`)
             .status(200) 
-            .json(new ResponseHandler(200, "Successfully Signed In", returned_response, null).result())
+            .json(new ResponseHandler(200, "Successfully Signed In",returned_response, null).result())
 
         }catch(error){
             return res
