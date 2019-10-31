@@ -80,7 +80,7 @@ class Entry {
             }else{
                 return res 
                 .status(200)
-                .json(new ResponseHandler(200, "All Entries", allEntries.reverse(), null).result())
+                .json(new ResponseHandler(200, "All Entries.", allEntries.reverse(), null).result())
             }
                 
            
