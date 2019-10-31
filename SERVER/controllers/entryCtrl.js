@@ -40,11 +40,18 @@ class Entry {
                 created_on
             }
 
-            entries.push(new_entry);
+            if(entries.some(ent => ent.title === new_entry.title)){
+                return res 
+                .status(409)
+                .json(new ResponseHandler(409, "Sorry! This title exists", null).result())
 
+            }else {
+            entries.push(new_entry);
             return res
                 .status(201)
                 .json(new ResponseHandler(201, "Entry successfully created.", lodash.omit(entries[entries.length - 1], ["user_id"]), null).result())
+            }
+            
 
         } catch (error) {
             return res

@@ -15,11 +15,9 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": 0,
-        "linebreak-style": 0,
-        "quotes": 0,
-        "semi": 0,
-        "no-undef":"off", 
-        "no-unused-vars":"off"
+        "indent": ["error", "tab"], 
+        "semi": ["error", "always"], 
+        "quotes": ["error", "double"], 
+        "linebreak-style": ["error", "unix"]
     }
 }
