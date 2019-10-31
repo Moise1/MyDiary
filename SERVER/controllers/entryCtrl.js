@@ -7,7 +7,6 @@ import moment from "moment";
 import ResponseHandler from "../utils/responseHandler";
 import tokenMan from "../helpers/tokenMan";
 import users from "../models/userModel";
-import { ENETDOWN } from "constants";
 
 
 
@@ -68,12 +67,7 @@ class Entry {
             
             const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
 
-            if (entries.length == 0) {
-                return res
-                    .status(404)
-                    .json(new ResponseHandler(404, "No entries yet.", null).result())
-
-            }else if(allEntries.length == 0){
+           if(allEntries.length == 0){
                 return res 
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You haven't created any entry yet.").result())
@@ -93,15 +87,11 @@ class Entry {
 
     static async singleEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
         const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
         const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
-            if (!theEntry) {
-                return res
-                    .status(404)
-                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            }else if(!filteredEntry){
+           
+            if(!filteredEntry){
                 return res 
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You can only view your own entry.", null).result())
@@ -119,22 +109,17 @@ class Entry {
 
     static async updateEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
         const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
         const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
 
-            if (!theEntry) {
-                return res
-                    .status(404)
-                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            }else if(!filteredEntry){
+             if(!filteredEntry){
                 return res 
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You can only update your own entry.", null).result())
             }else{
-                theEntry.title = req.body.title || theEntry.title;
-                theEntry.description = req.body.description || theEntry.description;
+                filteredEntry.title = req.body.title || filteredEntry.title;
+                filteredEntry.description = req.body.description || filteredEntry.description;
 
                 return res
                     .status(200)
