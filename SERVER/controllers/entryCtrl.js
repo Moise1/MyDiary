@@ -87,12 +87,16 @@ class Entry {
     }
 
     static async singleEntry(req, res) {
-
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
         const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
         const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
            
-            if(!filteredEntry){
+            if (!theEntry) {
+                return res
+                    .status(404)
+                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
+            }else if(!filteredEntry){
                 return res 
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You can only view your own entry.", null).result())
@@ -110,11 +114,16 @@ class Entry {
 
     static async updateEntry(req, res) {
 
+        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
         const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
         const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
         try {
 
-             if(!filteredEntry){
+            if (!theEntry) {
+                return res
+                    .status(404)
+                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
+            }else if(!filteredEntry){
                 return res 
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You can only update your own entry.", null).result())
@@ -124,7 +133,7 @@ class Entry {
 
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully updated!`, theEntry, null).result())
+                    .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully updated!`, filteredEntry, null).result())
             }
         } catch (error) {
             return res
@@ -150,7 +159,7 @@ class Entry {
                 .status(404)
                 .json(new ResponseHandler(404, "Sorry! You can only delete your own entry.", null).result())
             }else {
-                const index = entries.indexOf(theEntry);
+                const index = entries.indexOf(filteredEntry);
                 entries.splice(index, 1);
 
                 return res

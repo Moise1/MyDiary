@@ -187,7 +187,7 @@ describe("TESTING DIARY ENTRY", ()=>{
         .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
-            expect(res.body.message).to.deep.equal('Sorry! You can only view your own entry.');
+            expect(res.body.message).to.deep.equal(`Sorry! Entry number ${entry_id} not found`);
             done();
         })
     });
@@ -201,9 +201,10 @@ describe("TESTING DIARY ENTRY", ()=>{
             .set("Authorization", `Bearer ${userToken}`) 
             .send(validEntryTwo)
             .end((err, res)=>{
-                expect(res.body).to.be.an("object"); 
-                expect(res.body.status).to.deep.equal(500); 
-                expect(res.body.message).to.deep.equal('theEntry is not defined');
+              expect(res.body).to.be.an("object"); 
+              expect(res.body.status).to.deep.equal(200);
+              expect(res.body.message).to.deep.equal(`Entry number ${entry_id} successfully updated!`);
+              expect(res.body.data).to.be.an("object");
                 done()
             })
     }); 
@@ -219,7 +220,7 @@ describe("TESTING DIARY ENTRY", ()=>{
         .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
-            expect(res.body.message).to.deep.equal('Sorry! You can only update your own entry.'); 
+            expect(res.body.message).to.deep.equal(`Sorry! Entry number ${entry_id} not found`); 
             done()
         })
 });
