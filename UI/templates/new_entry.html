@@ -44,7 +44,7 @@
                     <img src="../images/new_entry.png" alt="new entry" title="Add New Entry">
                 </label>
                 <div class="entry-form">
-                    <form action="">
+                    <form action="#" id="the-form">
                         <label for="date">Choose Date:
                             <input type="date" id="date">
                         </label>
@@ -53,11 +53,11 @@
                             <input type="text" id="title" autocomplete="off">
                         </label>
 
-                        <label for="content">Notes:
-                            <textarea name="content" id="content" cols="10" rows="2"></textarea>
+                        <label for="content">Description:
+                            <textarea name="content" id="content" cols="40" rows="6"></textarea>
                         </label>
 
-                        <button type="submit" id="addBtn">Add</button>
+                        <button type="button" id="addBtn" onclick="nextPage()">Add</button>
                     </form>
                 </div>
             </div>

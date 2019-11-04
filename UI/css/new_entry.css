@@ -26,7 +26,7 @@ body {
     }
 
     .header {
-        position: relative;
+
         height: 90px;
         outline: none;
     }
@@ -171,10 +171,13 @@ body {
     .new_entry {
         position: relative;
         justify-items: center;
-        margin: -20px 0 0 0;
-        height: 595px; 
+        margin: -10px 0 30px -10px ;
+        height: 585px;
     }
     
+    #the-form{
+        margin-left: -20%;
+    }
 
     .new_entry h2{
         text-align: center;
@@ -267,7 +270,7 @@ body {
 
     .entry-form  button {
         position: absolute;
-        left: 45%;
+        left: 39%;
         right: 20%;
         margin: 2% 0 0 0 ;
         background: #FF5733;
@@ -295,10 +298,9 @@ body {
 
     /* Footer starts */
     .footer {
-        position: fixed;
         left: 0; 
         right: 0;
-        bottom: 5px;
+        bottom: 10px;
         height: 30px;
     }
 
