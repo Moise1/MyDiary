@@ -15,9 +15,8 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": ["error", "tab"], 
-        "semi": ["error", "always"], 
-        "quotes": ["error", "double"], 
-        "linebreak-style": ["error", "unix"]
+        "indent": [1, "tab"], 
+        "semi": [1, "always"], 
+        "quotes": [1, "double"] 
     }
 }
