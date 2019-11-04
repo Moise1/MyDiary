@@ -1,6 +1,6 @@
-mport { Pool } from "pg";
+import { Pool } from "pg";
 
-// @Bring In Keys for DB from configuration folder
+//Bring in Keys for DB from configuration folder
 import devKeys from "../config/config";
 import prodKeys from "../config/config";
 import testKeys from "../config/config";
