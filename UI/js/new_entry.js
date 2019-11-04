@@ -24,4 +24,4 @@ const closeNav = ()=>{
 
 const nextPage = () =>{
     return window.location.assign("./entries.html"); 
-}
+} 
