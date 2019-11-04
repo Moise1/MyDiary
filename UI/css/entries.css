@@ -292,19 +292,18 @@ body {
           font-size: 19px; 
           padding: 15px; 
           border: 1px solid #FF5733;
+          height: 95px;
+          overflow-y: scroll;
       }
 
 /* All entries end */
 
 
-    .footer {
-        left: 0; 
-        right: 0;
-        bottom: 5px;
-    }
-
     .footer p {
-        margin: 10px 0 0 0;
+        right: 0; 
+        left: 0;  
+        position: absolute;  
+        margin-top: 95px;
         padding:0;
         text-align: center;
         font-size: 25px;
@@ -605,16 +604,13 @@ body {
 
       /* All entries end  */ 
 
+      
 
-       .footer {
-        position: absolute;
-        left: 0; 
-        right: 0;
-        bottom: 20px;
-    }
-
-    .footer p {
-        margin: 10px 0 0 0;
+     .footer p {
+        right: 0; 
+        left: 0;
+        margin-top: 95px;
+        position: absolute;    
         padding:0;
         text-align: center;
         font-size: 25px;
@@ -923,11 +919,15 @@ body {
  /* Icons end */
 
     .footer p {
-        margin: 10px 0 0 0;
-        padding:0;
+        right: 0; 
+        left: 0;  
+        position: absolute;  
+        margin-top: -100%;
+        padding: 0;  
         text-align: center;
         font-size: 25px;
         color: #000;
+
     } 
 
 } 
@@ -1211,14 +1211,12 @@ body {
   
  /* Icons end */
   
-    .footer {
-        left: 0; 
-        right: 0;
-        bottom: 10px;
-    }
 
     .footer p {
-        margin: 10px 0 0 0;
+        right: 0; 
+        left: 0;  
+        position: absolute;  
+        margin-bottom: -100%;
         padding:0;
         text-align: center;
         font-size: 25px;
