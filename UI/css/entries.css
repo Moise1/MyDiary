@@ -172,12 +172,13 @@ body {
         margin-top: 50px;
         position: relative;
         animation: fadeIn ease-in 2s;
-        max-height: 800px;
+        max-height: 700px;
     }
    
     .entries {
         display: block;
         justify-items: center;
+
     }
 
     .entries h2{
@@ -186,11 +187,23 @@ body {
         margin-top: 60px; 
     }
 
+    .pagination{
+        text-align: center; 
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+
+    .pagination a {
+        padding: 50px; 
+        font-size: 17px;
+        color: #000;
+    }
+
 
     /* Icons start */
 
 
-     #foldOne::before {
+     #foldOne::before, #foldFour::before {
         content: url("../images/trash.png");
         background-image: url("../images/edit.png");
         background-repeat: no-repeat; 
@@ -206,7 +219,7 @@ body {
     /* FoldTwo */
 
 
-      #foldTwo::before {
+      #foldTwo::before, #foldFive::before {
         content: url("../images/trash.png");
         background-image: url("../images/edit.png");
         background-repeat: no-repeat; 
@@ -220,7 +233,7 @@ body {
 
     /* FoldTrhee */
 
-      #foldThree::before {
+      #foldThree::before, #foldSix::before {
         content: url("../images/trash.png");
         background-image: url("../images/edit.png");
         background-repeat: no-repeat; 
@@ -238,7 +251,7 @@ body {
 /* All entries start */
 
 
-    .foldables{
+    .foldables, .other-foldables{
         align-items: center;
         margin: 2% 60% 0 25%;
         width: 50%; 
@@ -302,8 +315,7 @@ body {
     .footer p {
         right: 0; 
         left: 0;  
-        position: absolute;  
-        margin-top: 95px;
+        bottom: 0;
         padding:0;
         text-align: center;
         font-size: 25px;
@@ -491,6 +503,19 @@ body {
     }
 
 
+
+    .pagination{
+        text-align: center; 
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+
+    .pagination a {
+        padding: 50px; 
+        font-size: 17px;
+        color: #000;
+    }
+
  /* Icons start */
 
     /* FoldOne */
@@ -608,13 +633,13 @@ body {
 
      .footer p {
         right: 0; 
-        left: 0;
-        margin-top: 95px;
-        position: absolute;    
+        left: 0;  
+        bottom: 0;
         padding:0;
         text-align: center;
         font-size: 25px;
         color: #000;
+
     }
 
 } 
@@ -787,6 +812,19 @@ body {
         margin-top: 50px;
     }
 
+
+    .pagination{
+        text-align: center; 
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+
+    .pagination a {
+        padding: 50px; 
+        font-size: 17px;
+        color: #000;
+    }
+
     /* All entries start */ 
 
 
@@ -921,12 +959,12 @@ body {
     .footer p {
         right: 0; 
         left: 0;  
-        position: absolute;  
-        margin-top: -100%;
-        padding: 0;  
+        bottom: 0;
+        padding:0;
         text-align: center;
         font-size: 25px;
         color: #000;
+
 
     } 
 
@@ -1097,6 +1135,19 @@ body {
     }
 
 
+
+    .pagination{
+        text-align: center; 
+        justify-content: space-between;
+        margin-top: 60px;
+    }
+
+    .pagination a {
+        padding: 50px; 
+        font-size: 17px;
+        color: #000;
+    }
+
     /* All entries start */ 
 
 
@@ -1215,11 +1266,12 @@ body {
     .footer p {
         right: 0; 
         left: 0;  
-        position: absolute;  
-        margin-bottom: -100%;
+        bottom: 0;
         padding:0;
         text-align: center;
         font-size: 25px;
         color: #000;
+
     }
-}
+} 
+
