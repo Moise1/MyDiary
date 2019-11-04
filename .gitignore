@@ -5,7 +5,4 @@ node_modules
 coverage 
 
 #nyc_output 
-.nyc_output 
-
-#dotenv 
-.env
+.nyc_output
