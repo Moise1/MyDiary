@@ -1,5 +1,5 @@
-import db from "../db/dbIndex";
-import hasher from "../helpers/password";
+import db from "../db/dbInit";
+import {hashingPassword, isSame} from "../helpers/password";
 
 
 class UserModel {
@@ -8,7 +8,7 @@ class UserModel {
 
         const  { first_name, last_name, email, password} = req;
 
-        const encrypted_password = await hasher.hashingPassword(password, 10);
+        const encrypted_password = await hashingPassword(password, 10);
 
         const new_user = {
             first_name, 
