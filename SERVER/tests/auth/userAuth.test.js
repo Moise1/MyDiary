@@ -64,19 +64,6 @@ describe("USER AUTHENTICATION", ()=>{
         done();
     })
 
-    it("Should not sign up a new user with an existing email", (done)=>{
-        chai 
-        .request(app) 
-        .post("/api/v1/auth/signup")
-        .send(validSignUp)
-        .catch((err)=> err.message)
-        .then((res)=>{
-           expect(res.body.status).to.deep.equal(409); 
-           expect(res.body.message).to.deep.equal('Sorry! Email already taken.');
-        }) 
-        done();
-    });
-
 
     it("Should sign in  a user", (done)=>{
 
@@ -87,7 +74,7 @@ describe("USER AUTHENTICATION", ()=>{
         .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(200); 
-            expect(res.body.message).to.deep.equal("Successfully Signed In"); 
+            expect(res.body.message).to.deep.equal("Successfully Signed In."); 
             expect(res.body.data).to.be.an("object"); 
             done();
         }) 

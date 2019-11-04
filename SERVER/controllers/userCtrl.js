@@ -36,7 +36,7 @@ class User {
                       
             const returnedResponse = {
                 token: token, 
-                ...lodash.omit(rows[0], ['password'])
+                ...lodash.omit(rows[0], ["password"])
             }
             
             return res
@@ -84,7 +84,7 @@ class User {
                 if (!matcher) {
                     return res
                     .status(401) 
-                    .json(new ResponseHandler(401, 'Invalid Password', null).result());
+                    .json(new ResponseHandler(401, "Invalid Password", null).result());
                 }
 
                 const token = await tokenMan.tokenizer({
@@ -99,7 +99,7 @@ class User {
                 return res
                 .header('Authorization', `Bearer ${token}`)
                 .status(200)
-                .json(new ResponseHandler(200, 'Successfully Signed In.', returnedResponse, null).result())
+                .json(new ResponseHandler(200, "Successfully Signed In.", returnedResponse, null).result())
 
 
         }catch(error){

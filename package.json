@@ -7,7 +7,7 @@
     "db:droptables": "node --require @babel/register ./SERVER/db/dropTable.js",
     "db:migrate": "node --require @babel/register ./SERVER/db/dbConnect.js",
     "start": "npm run db:droptables && npm run db:migrate && babel-watch  ./SERVER/server.js",
-    "test": "NODE_ENV=test nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
+    "test": "NODE_ENV=test npm run db:droptables && npm run db:migrate &&  nyc --reporter=text --reporter=lcov mocha --timeout 1000 --require @babel/polyfill --require @babel/register SERVER/tests/**/*.test.js --exit",
     "coveralls": "nyc report --reporter=text-lcov | coveralls",
     "lint": "./node_modules/.bin/eslint --fix ./SERVER/**/*.js"
   },
