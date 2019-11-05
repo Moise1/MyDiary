@@ -14,7 +14,8 @@ const {
     invalidSignUpTwo, 
     validLogin,  
     invalidLogin, 
-    invalidLoginTwo
+    invalidLoginTwo,
+    invalidLoginThree
 } = dummyAuth;
 
   
@@ -81,7 +82,20 @@ describe("USER AUTHENTICATION", ()=>{
     })
 
 
-    
+    it("Should sign in not sign in  a user if the input fields are empty", (done)=>{
+
+        chai 
+        .request(app) 
+        .post("/api/v1/auth/signin")
+        .send(invalidLoginThree)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.message).to.deep.equal('"email" is required'); 
+            done();
+        }) 
+        
+    })
 
     it("Should sign in  a user", (done)=>{
 

@@ -42,10 +42,13 @@ export default{
   
     invalidLogin: {
         email: "kababa@gmail.com", 
-        password: "Kabano123!" 
-    }, 
+        password: "Kabano123!"
+    },
     invalidLoginTwo: {
         email: "Kabano@gmail.com", 
         password: "kdfdfdf" 
+    }, 
+     invalidLoginThree: {
+         
     }
 }
