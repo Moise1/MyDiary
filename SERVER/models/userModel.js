@@ -1,5 +1,7 @@
 import db from "../db/dbInit";
 import {hashingPassword, isSame} from "../helpers/password";
+import uuid from "uuid/v1";
+
 
 
 class UserModel {
@@ -11,6 +13,7 @@ class UserModel {
         const encrypted_password = await hashingPassword(password, 10);
 
         const new_user = {
+            user_id: uuid(),
             first_name, 
             last_name, 
             email: email.toLowerCase(), 
@@ -18,9 +21,10 @@ class UserModel {
         };
 
 
-        const queryText = "INSERT INTO users(first_name, last_name, email, password) VALUES($1, $2, $3, $4) RETURNING*";
+        const queryText = "INSERT INTO users(user_id, first_name, last_name, email, password) VALUES($1, $2, $3, $4, $5) RETURNING*";
 
         const values = [
+            new_user.user_id,
             new_user.first_name,
             new_user.last_name,
             new_user.email,

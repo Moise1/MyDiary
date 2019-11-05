@@ -1,5 +1,5 @@
 import UserModel from "../models/userModel"; 
-import {signUpFields, loginFields} from "../helpers/userValidator" 
+import {validateSignup, validateSignin} from "../helpers/userValidator" 
 import {isSame} from "../helpers/password";
 import lodash from "lodash";  
 import ResponseHandler from "../utils/responseHandler"; 
@@ -9,7 +9,7 @@ import tokenMan from "../helpers/tokenMan";
 class User {
 
     static async SignUp(req, res){
-        const {error} = signUpFields(req.body); 
+        const {error} = validateSignup(req.body); 
         if(error){
             return res 
             .status(400) 
@@ -30,8 +30,7 @@ class User {
 
             
             const token = tokenMan.tokenizer({
-                user_id: rows[0].user_id, 
-                email: rows[0].email 
+                user_id: rows[0].user_id
             });
                       
             const returnedResponse = {
@@ -53,7 +52,7 @@ class User {
 
     static async SignIn(req, res){
 
-        const {error} = loginFields(req.body); 
+        const {error} = validateSignin(req.body); 
         if(error){
             return res 
             .status(400) 
