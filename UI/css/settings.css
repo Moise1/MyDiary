@@ -175,6 +175,10 @@ body {
 
   /* Reminder styles start */
 
+  .reminder {
+    height: 500px;
+  }
+
   .reminder h2 {
     text-align: center;
   }
@@ -220,10 +224,11 @@ body {
 
   .calendar {
     background: white;
-    width: 840px;
-    height: 490px;
+    width: 863px;
+    height: 460px;
     border-radius: 10px;
     overflow: hidden;
+
   }
 
   .calendar .calendar-left-side-day-of-week,
@@ -255,7 +260,7 @@ body {
 
   .calendar .left-side {
     width: 320px;
-    background: #ec364f;
+    background: #000;
     float: left;
   }
 
@@ -310,16 +315,21 @@ body {
 
   .calendar .right-side {
     width: 820px;
-    background: #000;
+    background: #ec364f;
   }
+
+  .calendar .right-side > * {
+    margin-top: -7px;
+  }  
 
   .calendar .calendar-change-year {
     font-size: 20px;
-  }
+    }
 
   .calendar .calendar-change-year .calendar-change-year-slider {
     margin: 15px 0;
-    color: #737373;
+    color: #fff;
+ 
   }
 
   .calendar .calendar-change-year .calendar-change-year-slider .fa:hover {
@@ -346,8 +356,8 @@ body {
     width: calc(460px / 12);
     height: 30px;
     line-height: 30px;
-    color: #868686;
-    font-size: 13px;
+    color: #fff;
+    font-size: 15px;
   }
 
   .calendar .calendar-month li.active {
@@ -367,12 +377,14 @@ body {
     width: 40px;
     height: 40px;
     line-height: 40px;
-    color: #959595;
+    color: #fff;
   }
 
   .calendar .calendar-days li.another-month:after {
     color: #ccc;
   }
+
+
 
   .calendar .calendar-days li:hover:after,
   .calendar .calendar-days li.selected-day:after,
@@ -405,7 +417,7 @@ body {
   .calendar .calendar-week {
     margin-bottom: 30px;
     font-weight: 600;
-    color: #737373;
+    color: #fff;
     border-top: 1px solid #ccc;
   }
 
