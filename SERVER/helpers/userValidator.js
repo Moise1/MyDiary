@@ -18,8 +18,8 @@ const validateSignup = (user) => {
 
 const validateSignin = (userFinder) => {
   const schema = Joi.object().keys({
-    email: Joi.string().regex(/^\S+$/).email().required().error(() => 'email must be a valid email'),
-    password: Joi.string().required().error(() => "password must be at least 8 characters long containing 1 capital letter, 1 small letter, 1 digit and 1 of these special characters(@, $, !, %, *, ?, &)")
+    email: Joi.string().regex(/^\S+$/).email().required(),
+    password: Joi.string().required()
 
   });
 

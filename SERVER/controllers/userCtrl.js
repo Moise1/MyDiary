@@ -11,10 +11,10 @@ class User {
     static async SignUp(req, res){
         const {error} = validateSignup(req.body); 
         if(error){
-            const possibleErrors = error.details.map(er => er.message);
+            // const possibleErrors = error.details.map(er => er.message);
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, possibleErrors, null).result());
+            .json(new ResponseHandler(400, error.details[0].message, null).result());
         }
 
         try{
@@ -55,10 +55,9 @@ class User {
         const {error} = validateSignin(req.body); 
 
         if(error){
-            const possibleErrors = error.details.map(er => er.message);
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, possibleErrors, null).result());
+            .json(new ResponseHandler(400, error.details[0].message, null).result());
         }
 
 

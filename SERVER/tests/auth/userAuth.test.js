@@ -81,19 +81,19 @@ describe("USER AUTHENTICATION", ()=>{
         
     })
 
-    it("Should not sign in a user", (done)=>{
+
+    it("Should not sign in a user if email doesn't exist", (done)=>{
 
         chai 
         .request(app) 
         .post("/api/v1/auth/signin")
         .send(invalidLogin)
-        .catch((err) => err.message)
-        .then((res)=>{
+        .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(400); 
-            expect(res.body.message).to.deep.equal('"email" must be a valid email'); 
-            done();
+            expect(res.body.status).to.deep.equal(404); 
+            expect(res.body.message).to.deep.equal(`User with email ${invalidLogin.email} is not found!`); 
         })   
+        done();
     })
 
     it("Should display \"Welcome to My Diary!\"", (done) => {

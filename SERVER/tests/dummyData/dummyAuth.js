@@ -31,8 +31,15 @@ export default{
         email: "kabano@gmail.com", 
         password: "Kabano123!"
     },
+
+    invalidSignThree: {
+        first_name: "", 
+        last_name: "",
+        email: "", 
+        password: ""
+    },
     invalidLogin: {
-        email: "musa", 
+        email: "musa@gmail.com", 
         password: "Kabano123!" 
     }
 }
