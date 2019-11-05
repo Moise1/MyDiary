@@ -27,4 +27,4 @@ const validateSignin = (userFinder) => {
   return Joi.validate(userFinder, schema);
 };
 
-export { validateSignup, validateSignin };
+export {validateSignup, validateSignin};
