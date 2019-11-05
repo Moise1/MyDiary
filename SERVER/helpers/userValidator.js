@@ -12,7 +12,8 @@ const validateSignup = (user) => {
 
   });
 
-  return Joi.validate(user, schema);
+  let options = {abortEarly: true};
+  return Joi.validate(user, schema, options);
 };
 
 
