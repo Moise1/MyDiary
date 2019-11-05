@@ -49,11 +49,23 @@
             <div class="entries">
                 <h2> All Entries</h2>
 
-                <div class="foldables">
-    
+                <div class="pagination">
+                    <a href="#" onclick="Prev()">&laquo; Prev</a>
+                    <a href="#" onclick="Next()">Next &raquo;</a>
+                </div>
+
+                <div class="foldables" id="page1">
                     <button class="foldable" id="foldOne">My First Line of Code | &nbsp;&nbsp; October 9, 2019</button>
                     <div class="content">
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
                             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
@@ -70,6 +82,38 @@
                             laboris nisi ut aliquip ex ea commodo consequat.</p>
                     </div>
                 </div>
+
+                <div class="other-foldables"  id="page2"> 
+    
+                    <button class="foldable" id="foldFour">My First Football game | &nbsp;&nbsp; November 20, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.
+                            
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <button class="foldable" id="foldFive">My First Cup of Coffee |&nbsp; November 22, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                    <button class="foldable" id="foldSix">My First Safari |&nbsp; November 23, 2019</button>
+                    <div class="content">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
+                            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                            laboris nisi ut aliquip ex ea commodo consequat.</p>
+                    </div>
+                </div>
+
+
             </div>
         </main> 
     </div> 
@@ -78,8 +122,7 @@
                 document.write(new Date().getFullYear());
             </script>&nbsp; My&nbsp; Diary</p>
     </footer>
-
     <script type="text/javascript" src="../js/entries.js"></script>
 </body>
 
-</html>
+</html> 
