@@ -12,7 +12,8 @@ const {
     invalidSignUp,
     invalidSignUpTwo, 
     validLogin,  
-    invalidLogin
+    invalidLogin, 
+    invalidLoginTwo
 } = dummyAuth;
 
   
@@ -95,6 +96,22 @@ describe("USER AUTHENTICATION", ()=>{
         })   
         done();
     })
+
+
+    it("Should not sign in a user if passwords don't match ", (done)=>{
+
+        chai 
+        .request(app) 
+        .post("/api/v1/auth/signin")
+        .send(invalidLoginTwo)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(401); 
+            expect(res.body.message).to.deep.equal('Invalid Password'); 
+            done();
+        })   
+       
+    });
 
     it("Should display \"Welcome to My Diary!\"", (done) => {
         chai

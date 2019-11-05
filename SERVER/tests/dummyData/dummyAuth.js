@@ -32,14 +32,13 @@ export default{
         password: "Kabano123!"
     },
 
-    invalidSignThree: {
-        first_name: "", 
-        last_name: "",
-        email: "", 
-        password: ""
-    },
+  
     invalidLogin: {
-        email: "musa@gmail.com", 
+        email: "kababa@gmail.com", 
         password: "Kabano123!" 
+    }, 
+    invalidLoginTwo: {
+        email: "Kabano@gmail.com", 
+        password: "kdfdfdf" 
     }
 }
