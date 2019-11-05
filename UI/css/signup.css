@@ -159,7 +159,7 @@ body {
     .content-container {
         height: 520px; 
         position: relative;
-        animation: fadeIn ease-in 2s;
+        animation: fadeIn ease-in 1s;
 
         
     }
@@ -418,7 +418,8 @@ body {
     .content-container {
         height: 520px; 
         position: relative;
-        animation: fadeIn ease-in 2s;
+        animation: fadeIn ease-in 1s;
+
 
         
     }
