@@ -21,3 +21,7 @@ const openNav = ()=>{
 const closeNav = ()=>{
     document.getElementById("myNav").style.width = "0%";
 }
+
+const nextPage = () =>{
+    return window.location.assign("./entries.html"); 
+} 
