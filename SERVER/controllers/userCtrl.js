@@ -51,7 +51,12 @@ class User {
     }
 
     static async SignIn(req, res){
-        
+        const {error} = validateSignin(req.body); 
+        if(error){
+            return res 
+            .status(400) 
+            .json(new ResponseHandler(400, error.details[0].message, null).result());
+        }    
         try{
             const {
                 email,

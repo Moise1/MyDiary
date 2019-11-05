@@ -11,6 +11,13 @@ export default{
         email: "kagame@gmail.com", 
         password: "Kagame123!"
     }, 
+
+    validSignUpThree: {
+        first_name: "yvan", 
+        last_name: "games", 
+        email: "kagame@gmail.com", 
+        password: "Kagame123!"
+    }, 
     validLoginTwo: {
         email: "kagame@gmail.com", 
         password: "Kagame123!"     

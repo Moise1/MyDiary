@@ -54,6 +54,7 @@
     "@babel/preset-stage-0": "^7.0.0",
     "@babel/register": "^7.4.0",
     "assert": "^2.0.0",
+    "celebrate": "^10.0.1",
     "chai": "^4.2.0",
     "chai-http": "^4.2.1",
     "coveralls": "^3.0.3",

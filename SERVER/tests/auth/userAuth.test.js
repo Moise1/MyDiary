@@ -9,6 +9,7 @@ import chai, {
 
 const {
     validSignUp,
+    validSignUpThree,
     invalidSignUp,
     invalidSignUpTwo, 
     validLogin,  
@@ -34,6 +35,20 @@ describe("USER AUTHENTICATION", ()=>{
             done()
         })
     });
+
+    it("Should not sign up a new user with a taken email", (done)=>{
+
+        chai 
+        .request(app) 
+        .post("/api/v1/auth/signup")
+        .send(validSignUp)
+        .end((err,res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(409); 
+            expect(res.body.message).to.deep.equal('Sorry! Email already taken.'); 
+        }) 
+        done();
+    }); 
 
     it("Should not sign up a new user with an invalid password", (done)=>{
 
@@ -65,6 +80,8 @@ describe("USER AUTHENTICATION", ()=>{
         done();
     })
 
+
+    
 
     it("Should sign in  a user", (done)=>{
 
