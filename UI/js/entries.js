@@ -43,4 +43,17 @@ for(i = 0; i < fold.length; i++) {
 const editContent = ()=>{ 
   document.querySelectorAll(".foldable, .content").contentEditable="true";
 
+} 
+
+const pageTwo = document.getElementById("page2");
+pageTwo.style.visibility = "hidden";
+const pageOne = document.getElementById("page1");
+
+const Next = ()=>{
+   pageOne.parentNode.replaceChild(pageTwo, pageOne); 
+  pageTwo.style.visibility="visible";
 }
+
+const Prev = () => {
+  pageTwo.parentNode.replaceChild(pageOne, pageTwo);
+} 
