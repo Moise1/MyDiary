@@ -11,9 +11,10 @@ class User {
     static async SignUp(req, res){
         const {error} = validateSignup(req.body); 
         if(error){
+            const possibleErrors = error.details.map(er => er.message);
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, error.details[0].message, null).result());
+            .json(new ResponseHandler(400, possibleErrors, null).result());
         }
 
         try{
@@ -51,12 +52,13 @@ class User {
     }
 
     static async SignIn(req, res){
-
         const {error} = validateSignin(req.body); 
+
         if(error){
+            const possibleErrors = error.details.map(er => er.message);
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, error.details[0].message, null).result());
+            .json(new ResponseHandler(400, possibleErrors, null).result());
         }
 
 
@@ -87,8 +89,7 @@ class User {
                 }
 
                 const token = await tokenMan.tokenizer({
-                    user_id: rows[0].user_id,
-                    email: rows[0].email,
+                    user_id: rows[0].user_id
                 });
 
                 const returnedResponse = {
