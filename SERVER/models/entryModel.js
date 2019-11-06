@@ -28,7 +28,11 @@ class EntryModel {
         return queryResult;
     }
 
-
+    static async findTitle(entry_title){
+        const queryText = "SELECT * FROM entries WHERE title=$1";
+        const queryResult = await db.query(queryText, [entry_title]);
+        return queryResult; 
+    } 
 
 }
 

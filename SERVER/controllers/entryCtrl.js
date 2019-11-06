@@ -22,17 +22,26 @@ class Entry{
 
         try{
         
+        const theTitle = await EntryModel.findTitle(req.body.title);
+
         const {rows} = await EntryModel.create(req.body, req.user.user_id); 
         
-        return res
-        .status(201)
-        .json(new ResponseHandler(201, "Entry successfully created.", rows).result());            
+        if(theTitle.rows.length !== 0){
+            return res
+            .status(409)
+            .json(new ResponseHandler(409, "Sorry! This title exists").result());
 
-        } catch (error) {
+        }else {
+            return res
+            .status(201)
+            .json(new ResponseHandler(201, "Entry successfully created.", rows).result());
+        }            
+
+        }catch (error) {
             return res
                 .status(500)
                 .json(new ResponseHandler(500, error.message, null, error).result());
-        }
+        } 
     }
 
     static async allEntries(req, res) {
