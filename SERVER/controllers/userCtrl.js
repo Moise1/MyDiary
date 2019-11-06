@@ -13,7 +13,7 @@ class User {
         if(error){
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, error.details[0].message, null).result());
+            .json(new ResponseHandler(400, (error.details || []).map(er => er.message), null).result());
         }
 
         try{
@@ -55,7 +55,7 @@ class User {
         if(error){
             return res 
             .status(400) 
-            .json(new ResponseHandler(400, error.details[0].message, null).result());
+            .json(new ResponseHandler(400, (error.details || []).map(er => er.message), null).result());
         }    
         try{
             const {

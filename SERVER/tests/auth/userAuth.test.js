@@ -12,6 +12,7 @@ const {
     validSignUpThree,
     invalidSignUp,
     invalidSignUpTwo, 
+    invalidSignupThree,
     validLogin,  
     invalidLogin, 
     invalidLoginTwo,
@@ -61,7 +62,27 @@ describe("USER AUTHENTICATION", ()=>{
         .then((res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(400); 
-            expect(res.body.message).to.deep.equal("password must be at least 8 characters long containing 1 capital letter, 1 small letter, 1 digit and 1 of these special characters(@, $, !, %, *, ?, &)"); 
+            expect(res.body.message).to.deep.equal([ '"password" with value "kabano123" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/' ]); 
+        }) 
+        done();
+    })
+
+
+    it("Should not sign up a new user with an empty request body", (done)=>{
+
+        chai 
+        .request(app) 
+        .post("/api/v1/auth/signup")
+        .send(invalidSignupThree)
+        .catch((err)=> err.message)
+        .then((res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.message).to.deep.equal([ 
+             '"first_name" is required',
+            '"last_name" is required',
+            '"email" is required',
+            '"password" is required' ]); 
         }) 
         done();
     })
@@ -76,7 +97,7 @@ describe("USER AUTHENTICATION", ()=>{
         .then((res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(400); 
-            expect(res.body.message).to.deep.equal('first_name must be a string'); 
+            expect(res.body.message).to.deep.equal([ '"first_name" is not allowed to be empty' ]); 
         }) 
         done();
     })
@@ -91,7 +112,7 @@ describe("USER AUTHENTICATION", ()=>{
         .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(400); 
-            expect(res.body.message).to.deep.equal('"email" is required'); 
+            expect(res.body.message).to.deep.equal([ '"email" is required', '"password" is required' ]); 
             done();
         }) 
         

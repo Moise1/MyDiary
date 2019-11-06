@@ -38,8 +38,9 @@ export default{
         email: "kabano@gmail.com", 
         password: "Kabano123!"
     },
-
-  
+    invalidSignupThree: {
+      
+    },
     invalidLogin: {
         email: "kababa@gmail.com", 
         password: "Kabano123!"
