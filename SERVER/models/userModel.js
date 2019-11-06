@@ -44,11 +44,17 @@ class UserModel {
 
     static async findUser(user_id){
         const queryText = "SELECT * FROM users WHERE user_id=$1";
-        const queryResult = await db.query(queryText, [parseInt(user_id)]);
+        const queryResult = await db.query(queryText, [user_id]);
+        return queryResult; 
+    } 
+
+    static async returningUser(){
+        const queryText = "SELECT * FROM users WHERE user_id=$1";
+        const queryResult = await db.query(queryText);
         return queryResult; 
     }
 
 }
 
 
-export default UserModel;
+export default UserModel; 

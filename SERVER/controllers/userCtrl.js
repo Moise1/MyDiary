@@ -18,11 +18,6 @@ class User {
 
         try{
 
-            const oneMail = await UserModel.findMail(req.body.email);
-            if(oneMail.rows.length !== 0) 
-            return res
-            .status(409)
-            .json(new ResponseHandler(409, 'Sorry! Email already taken.', null).result()); 
 
             const {
                 rows
@@ -40,12 +35,12 @@ class User {
             
             return res
             .status(201)
-            .json(new ResponseHandler(201, 'User created successfully.', returnedResponse, null).result());
+            .json(new ResponseHandler(201, 'User created successfully.', returnedResponse).result());
             
         }catch(error){
             return res 
             .status(500) 
-            .json(new ResponseHandler(500, error.message, null).result())
+            .json(new ResponseHandler(500, error.message, null, error).result())
         }
 
     }
@@ -80,7 +75,7 @@ class User {
                 if (!matcher) {
                     return res
                     .status(401) 
-                    .json(new ResponseHandler(401, "Invalid Password", null).result());
+                    .json(new ResponseHandler(401, "Invalid Password").result());
                 }
 
                 const token = await tokenMan.tokenizer({
@@ -94,13 +89,13 @@ class User {
                 return res
                 .header('Authorization', `Bearer ${token}`)
                 .status(200)
-                .json(new ResponseHandler(200, "Successfully Signed In.", returnedResponse, null).result())
+                .json(new ResponseHandler(200, "Successfully Signed In.", returnedResponse).result())
 
 
         }catch(error){
             return res
             .status(500)
-            .json(new ResponseHandler(500, error.message, null).result())
+            .json(new ResponseHandler(500, error.message, null, error).result())
         }
         
     }

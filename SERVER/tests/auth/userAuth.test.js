@@ -36,9 +36,9 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body.data).to.be.an("object");
             expect(res.body.data.token).to.be.a("string");
             expect(res.body.data.user_id).to.be.a("string");
-            expect(res.body.data.first_name).to.be.a("string");
-            expect(res.body.data.last_name).to.be.a("string");
-            expect(res.body.data.email).to.be.a("string");
+            expect(res.body.data.first_name).to.deep.equal("kalisa");
+            expect(res.body.data.last_name).to.deep.equal("kabano");
+            expect(res.body.data.email).to.deep.equal("kabano@gmail.com");
             done()
         })
     });
@@ -51,8 +51,7 @@ describe("USER AUTHENTICATION", ()=>{
         .send(validSignUp)
         .end((err,res)=>{
             expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(409); 
-            expect(res.body.message).to.deep.equal('Sorry! Email already taken.'); 
+            expect(res.body.status).to.deep.equal(500); 
         }) 
         done();
     }); 
@@ -138,9 +137,9 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body.data).to.be.an("object"); 
             expect(res.body.data.token).to.be.a("string");
             expect(res.body.data.user_id).to.be.an("string");
-            expect(res.body.data.first_name).to.be.an("string");
-            expect(res.body.data.last_name).to.be.an("string");
-            expect(res.body.data.email).to.be.an("string");
+            expect(res.body.data.first_name).to.deep.equal("kalisa");
+            expect(res.body.data.last_name).to.deep.equal("kabano");
+            expect(res.body.data.email).to.deep.equal("kabano@gmail.com");
             done();
         }) 
         
@@ -157,8 +156,6 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
             expect(res.body.message).to.deep.equal(`User with email ${invalidLogin.email} is not found!`); 
-            expect(res.body.message).to.be.a('string'); 
-
         })   
         done();
     })
@@ -174,7 +171,6 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(401); 
             expect(res.body.message).to.deep.equal('Invalid Password'); 
-            expect(res.body.message).to.be.a('string')
             done();
         })   
        
@@ -189,7 +185,6 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body).to.be.an("object");
             expect(res.body.status).to.be.equal(200);
             expect(res.body.message).to.deep.equal("Welcome to My Diary!");
-            expect(res.body.message).to.be.a('string');
             done();
           });
       });
@@ -201,7 +196,6 @@ describe("USER AUTHENTICATION", ()=>{
           .end((err, res) => {
             expect(res.body.status).to.be.eql(405);
             expect(res.body.message).to.be.eql("Method Not Allowed!");
-            expect(res.body.message).to.be.a('string')
             done();
           });
       });
