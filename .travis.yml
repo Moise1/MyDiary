@@ -7,6 +7,16 @@ cache:
   directories: 
     - "node_modules" 
 
+addons: 
+  postgresql: "9.6" 
+        
+services: 
+  - postgresql 
+        
+before_install: 
+  - psql -c 'create database mydiary_test;' -U postgres
+
+
     
 before_script:
     - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
@@ -18,8 +28,4 @@ after_script:
     - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
 
 script:
-    - npm test
-
-after_success:
-    - npm run coveralls 
-    
+    - npm test 

@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 dotenv.config(); 
 
 dotenv.config(); 
-const config = {}; 
+let config = {}; 
 
 config.DATABASE_URL = process.env.DB_TEST; 
 config.SECRET_OR_PUBLIC_KEY = process.env.SECRET_OR_PUBLIC_KEY; 
