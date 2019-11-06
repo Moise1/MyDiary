@@ -1,61 +1,47 @@
-import entries from "../models/entryModel";
+import EntryModel from "../models/entryModel";
 import {
-    entryFields
+    validateEntry
 } from "../helpers/entryValidator";
 import lodash from "lodash";
-import moment from "moment";
 import ResponseHandler from "../utils/responseHandler";
 import tokenMan from "../helpers/tokenMan";
-import users from "../models/userModel";
+import UserModel from "../models/userModel";
 
 
 
-class Entry {
+class Entry{
 
     static async addEntry(req, res) {
 
-        const {
-            error
-        } = entryFields(req.body);
-        if (error) {
-            return res
-                .status(400)
-                .json(new ResponseHandler(400, error.details[0].message, null).result());
+        const {error} = validateEntry(req.body); 
+        if(error){
+            return res 
+            .status(400) 
+            .json(new ResponseHandler(400, (error.details || []).map(er => er.message), null).result());
         }
-
-
 
         try{
+        
+        const theTitle = await EntryModel.findTitle(req.body.title);
 
-            let date = moment(); 
-            const created_on = date.format("YYYY-MM-DD | LT");
-            const {title, description} = req.body;
-            const new_entry = {
-                entry_id: entries.length + 1, 
-                title: title, 
-                description: description,
-                user_id: req.user.user_id,
-                created_on
-            }
-
-            if(entries.some(ent => ent.title === new_entry.title)){
-                return res 
-                .status(409)
-                .json(new ResponseHandler(409, "Sorry! This title exists", null).result())
-
-            }else {
-            entries.push(new_entry);
+        const {rows} = await EntryModel.create(req.body, req.user.user_id); 
+        
+        if(theTitle.rows.length !== 0){
             return res
-                .status(201)
-                .json(new ResponseHandler(201, "Entry successfully created.", lodash.omit(entries[entries.length - 1], ["user_id"]), null).result())
-            }
-            
+            .status(409)
+            .json(new ResponseHandler(409, "Sorry! This title exists").result());
 
-        } catch (error) {
+        }else {
+            return res
+            .status(201)
+            .json(new ResponseHandler(201, "Entry successfully created.", rows).result());
+        }            
+
+        }catch (error) {
             return res
                 .status(500)
-                .json(new ResponseHandler(500, error.message, null).result());
-        }
+                .json(new ResponseHandler(500, error.message, null, error).result());
+        } 
     }
 
     static async allEntries(req, res) {

@@ -16,7 +16,7 @@ router.post("/api/v1/auth/signin", User.SignIn);
 
 
 // Entry router 
-// router.post("/api/v1/entries", tokenExists, userAccess, Entry.addEntry); 
+router.post("/api/v1/entries", tokenExists, userAccess, Entry.addEntry); 
 // router.get("/api/v1/entries", tokenExists, userAccess, Entry.allEntries);
 // router.get("/api/v1/entries/:entry_id", tokenExists, userAccess, Entry.singleEntry);
 // router.patch("/api/v1/entries/:entry_id", tokenExists, userAccess, Entry.updateEntry);

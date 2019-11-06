@@ -18,7 +18,6 @@ class User {
 
         try{
 
-
             const {
                 rows
             } = await UserModel.create(req.body);
