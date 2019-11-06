@@ -83,32 +83,32 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     })
 
-    it("Should not add a new entry when access is denied.", (done)=>{
-        chai 
-        .request(app)
-        .post("/api/v1/entries") 
-        .send(validEntry)
-        .set("Authorization", `${userToken}`)
-        .end((err, res)=>{
-            expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(401); 
-            expect(res.body.message).to.deep.equal("Access Denied."); 
-            done();
-        })
-    })
+    // it("Should not add a new entry when access is denied.", (done)=>{
+    //     chai 
+    //     .request(app)
+    //     .post("/api/v1/entries") 
+    //     .send(validEntry)
+    //     .set("Authorization", `${userToken}`)
+    //     .end((err, res)=>{
+    //         expect(res.body).to.be.an("object"); 
+    //         expect(res.body.status).to.deep.equal(401); 
+    //         expect(res.body.message).to.deep.equal("Access Denied."); 
+    //         done();
+    //     })
+    // })
 
-    it("Should add a new entry.", (done)=>{
-        chai 
-        .request(app)
-        .post("/api/v1/entries") 
-        .send(validEntry)
-        .set("Authorization", `Bearer ${userToken}`)
-        .end((err, res)=>{
-            expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(500);
-            done();
-        })
-    });
+    // it("Should add a new entry.", (done)=>{
+    //     chai 
+    //     .request(app)
+    //     .post("/api/v1/entries") 
+    //     .send(validEntry)
+    //     .set("Authorization", `Bearer ${userToken}`)
+    //     .end((err, res)=>{
+    //         expect(res.body).to.be.an("object"); 
+    //         expect(res.body.status).to.deep.equal(500);
+    //         done();
+    //     })
+    // });
 
 
 //     it("Should get all entries.", (done)=>{
