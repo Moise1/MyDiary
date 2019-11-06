@@ -34,6 +34,11 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body.status).to.deep.equal(201); 
             expect(res.body.message).to.deep.equal("User created successfully."); 
             expect(res.body.data).to.be.an("object");
+            expect(res.body.data.token).to.be.a("string");
+            expect(res.body.data.user_id).to.be.a("string");
+            expect(res.body.data.first_name).to.be.a("string");
+            expect(res.body.data.last_name).to.be.a("string");
+            expect(res.body.data.email).to.be.a("string");
             done()
         })
     });
@@ -61,7 +66,8 @@ describe("USER AUTHENTICATION", ()=>{
         .catch((err)=> err.message)
         .then((res)=>{
             expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.status).to.deep.equal(400);
+            expect(res.body.message).to.be.an("array"); 
             expect(res.body.message).to.deep.equal([ '"password" with value "kabano123" fails to match the required pattern: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$/' ]); 
         }) 
         done();
@@ -74,10 +80,10 @@ describe("USER AUTHENTICATION", ()=>{
         .request(app) 
         .post("/api/v1/auth/signup")
         .send(invalidSignupThree)
-        .catch((err)=> err.message)
-        .then((res)=>{
+        .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.message).to.be.an("array");
             expect(res.body.message).to.deep.equal([ 
              '"first_name" is required',
             '"last_name" is required',
@@ -93,25 +99,26 @@ describe("USER AUTHENTICATION", ()=>{
         .request(app) 
         .post("/api/v1/auth/signup")
         .send(invalidSignUpTwo)
-        .catch((err)=> err.message)
-        .then((res)=>{
+        .end((err, res)=>{
             expect(res.body).to.be.an("object"); 
-            expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.status).to.deep.equal(400);
+            expect(res.body.message).to.be.an("array");  
             expect(res.body.message).to.deep.equal([ '"first_name" is not allowed to be empty' ]); 
         }) 
         done();
     })
 
 
-    it("Should sign in not sign in  a user if the input fields are empty", (done)=>{
+    it("Should sign in not sign in  a user if the request body is  empty", (done)=>{
 
         chai 
         .request(app) 
         .post("/api/v1/auth/signin")
         .send(invalidLoginThree)
         .end((err, res)=>{
-            expect(res.body).to.be.an("object"); 
+            expect(res.body).to.be.an("object");
             expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.message).to.be.an("array"); 
             expect(res.body.message).to.deep.equal([ '"email" is required', '"password" is required' ]); 
             done();
         }) 
@@ -129,6 +136,11 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body.status).to.deep.equal(200); 
             expect(res.body.message).to.deep.equal("Successfully Signed In."); 
             expect(res.body.data).to.be.an("object"); 
+            expect(res.body.data.token).to.be.a("string");
+            expect(res.body.data.user_id).to.be.an("string");
+            expect(res.body.data.first_name).to.be.an("string");
+            expect(res.body.data.last_name).to.be.an("string");
+            expect(res.body.data.email).to.be.an("string");
             done();
         }) 
         
@@ -145,6 +157,8 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(404); 
             expect(res.body.message).to.deep.equal(`User with email ${invalidLogin.email} is not found!`); 
+            expect(res.body.message).to.be.a('string'); 
+
         })   
         done();
     })
@@ -160,6 +174,7 @@ describe("USER AUTHENTICATION", ()=>{
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(401); 
             expect(res.body.message).to.deep.equal('Invalid Password'); 
+            expect(res.body.message).to.be.a('string')
             done();
         })   
        
@@ -170,9 +185,11 @@ describe("USER AUTHENTICATION", ()=>{
           .request(app)
           .get("/")
           .end((err, res) => {
+
             expect(res.body).to.be.an("object");
             expect(res.body.status).to.be.equal(200);
             expect(res.body.message).to.deep.equal("Welcome to My Diary!");
+            expect(res.body.message).to.be.a('string');
             done();
           });
       });
@@ -184,6 +201,7 @@ describe("USER AUTHENTICATION", ()=>{
           .end((err, res) => {
             expect(res.body.status).to.be.eql(405);
             expect(res.body.message).to.be.eql("Method Not Allowed!");
+            expect(res.body.message).to.be.a('string')
             done();
           });
       });
