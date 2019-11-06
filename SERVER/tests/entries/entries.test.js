@@ -268,7 +268,7 @@
 //             expect(res.body).to.be.an("object"); 
 //             expect(res.body.status).to.deep.equal(404); 
 //             expect(res.body.message).to.deep.equal(`Sorry! Entry number ${entry_id} not found`); 
-//             done()
+//             done();
 //         })
 //     })
 
