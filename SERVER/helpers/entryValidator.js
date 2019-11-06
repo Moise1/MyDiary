@@ -1,13 +1,13 @@
-import Joi from "joi";
+import Joi from "@hapi/joi";
 
 export const entryFields = (entry) => {
   const schema = Joi.object().keys({
     title: Joi.string().min(3).max(50)
-    .required().error(() =>'title must be a string'),
+    .required(),
     description: Joi.string().min(3).max(20)
-      .required().error(()=> 'description must be a string'),
+      .required(),
   })
 
-  return Joi.validate(entry, schema);
+  return schema.validate(entry, schema);
 }; 
 
