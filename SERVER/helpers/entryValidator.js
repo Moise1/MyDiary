@@ -1,6 +1,6 @@
 import Joi from "@hapi/joi";
 
-export const entryFields = (entry) => {
+export const validateEntry = (entry) => {
   const schema = Joi.object().keys({
     title: Joi.string().min(3).max(50)
     .required(),
@@ -8,6 +8,16 @@ export const entryFields = (entry) => {
       .required(),
   })
 
-  return schema.validate(entry, schema);
+  const options = {
+    abortEarly: false,
+    key: '"{{key}}" ',
+    escapeHtml: true,
+    language: {
+      string: {
+          base: '{{key}} '
+      }
+  }
+};
+  return schema.validate(entry, options);
 }; 
 
