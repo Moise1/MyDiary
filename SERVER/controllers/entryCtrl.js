@@ -182,26 +182,31 @@ class Entry{
 
     static async deleteEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
-        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
-        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
+        const {entry_id} = req.params; 
+        const owner_id = req.user.user_id; 
+        const user_data = await UserModel.findUser(owner_id); 
+        const theOwner = await EntryModel.specificOwner(user_data.rows[0].user_id);
+        const theEntry = await EntryModel.getOne(entry_id); 
+
         try {
 
-            if (!theEntry) {
+
+            if (theEntry.rows.length === 0) {
                 return res
-                    .status(404)
-                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            }else if(!filteredEntry){
+                .status(404)
+                .json(new ResponseHandler(404,  'Entry is not found!').result());
+
+            }else if(theOwner.rows.length === 0 ){
                 return res 
                 .status(404)
-                .json(new ResponseHandler(404, "Sorry! You can only delete your own entry.", null).result())
+                .json(new PageResponse(200, 'Sorry! You can only delete your own entry.').result())
+                
             }else {
-                const index = entries.indexOf(filteredEntry);
-                entries.splice(index, 1);
 
+                await EntryModel.remover(entry_id); 
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully deleted!`, null).result())
+                    .json(new ResponseHandler(200, 'Entry successfully deleted!').result());
             }
         } catch (error) {
             return res
