@@ -43,6 +43,20 @@ class EntryModel {
 
     } 
 
+    
+    static async specificOwner(ownerId){
+        const queryText = "SELECT entries.user_id FROM entries WHERE user_id=$1"; 
+        const queryResult = await db.query(queryText, [ownerId]);
+        return queryResult;
+    } 
+
+    static async findTitle(entry_title){
+        const queryText = "SELECT * FROM entries WHERE title=$1";
+        const queryResult = await db.query(queryText, [entry_title]);
+        return queryResult; 
+    } 
+
+
     static async Updater(entry_id, input){
         const theMoment = moment(); 
         const {
@@ -57,18 +71,14 @@ class EntryModel {
 
     }
 
-    static async specificOwner(ownerId){
-        const queryText = "SELECT entries.user_id FROM entries WHERE user_id=$1"; 
-        const queryResult = await db.query(queryText, [ownerId]);
+    static async remover(entry_id) {
+        const {
+            rows
+        } = await this.getOne(entry_id);
+        const queryText = "DELETE FROM entries WHERE entry_id=$1";
+        const queryResult = await db.query(queryText, [rows[0].entry_id]);
         return queryResult;
-    } 
-
-    static async findTitle(entry_title){
-        const queryText = "SELECT * FROM entries WHERE title=$1";
-        const queryResult = await db.query(queryText, [entry_title]);
-        return queryResult; 
-    } 
-
+    }
 
 
 }
