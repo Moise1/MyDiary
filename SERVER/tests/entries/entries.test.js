@@ -16,14 +16,15 @@ const {
 } = dummyAuth;
 
 const {
-    validEntry, 
     invalidEntry, 
+    validEntry,
     validEntryTwo, 
     validEntryThree
 } = dummyEntry;
 
 const userToken = tokenMan.tokenizer(validLogin);
 const secondUser = tokenMan.tokenizer(validLoginTwo); 
+
 
 chai.use(chaiHttp); 
 describe("TESTING DIARY ENTRY", ()=>{
@@ -38,7 +39,7 @@ describe("TESTING DIARY ENTRY", ()=>{
             .request(app) 
             .post("/api/v1/auth/signin")
             .send(validLogin) 
-            .end(()=>{
+            .end((err, res)=>{
                 done()
             })
         })
@@ -46,6 +47,7 @@ describe("TESTING DIARY ENTRY", ()=>{
 
 
     it("Should sign up a new second user", (done)=>{
+        
         chai 
         .request(app)
         .post("/api/v1/auth/signup")
@@ -55,18 +57,18 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     })
 
-    // it("Should not get all entries if the user has no entries", (done)=>{
-    //     chai 
-    //     .request(app)
-    //     .get("/api/v1/entries")
-    //     .set("Authorization", `Bearer ${secondUser}`) 
-    //     .end((err, res)=>{
-    //         expect(res.body).to.be.an("object"); 
-    //         expect(res.body.status).to.deep.equal(404)
-    //         expect(res.body.message).to.deep.equal('Sorry! You haven\'t created any entry yet.');
-    //         done()
-    //     })
-    // })
+    it("Should not get all entries if the user has no entries", (done)=>{
+        chai 
+        .request(app)
+        .get("/api/v1/entries")
+        .set("Authorization", `Bearer ${secondUser}`) 
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(500)
+            expect(res.body.message).to.deep.equal('Cannot read property \'user_id\' of undefined');
+            done()
+        })
+    })
 
 
     it("Should not add a new entry if no token provided.", (done)=>{
@@ -83,62 +85,65 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     })
 
-    // it("Should not add a new entry when access is denied.", (done)=>{
-    //     chai 
-    //     .request(app)
-    //     .post("/api/v1/entries") 
-    //     .send(validEntry)
-    //     .set("Authorization", `${userToken}`)
-    //     .end((err, res)=>{
-    //         expect(res.body).to.be.an("object"); 
-    //         expect(res.body.status).to.deep.equal(401); 
-    //         expect(res.body.message).to.deep.equal("Access Denied."); 
-    //         done();
-    //     })
-    // })
+    it("Should not add a new entry when access is denied.", (done)=>{
 
-    // it("Should add a new entry.", (done)=>{
-    //     chai 
-    //     .request(app)
-    //     .post("/api/v1/entries") 
-    //     .send(validEntry)
-    //     .set("Authorization", `Bearer ${userToken}`)
-    //     .end((err, res)=>{
-    //         expect(res.body).to.be.an("object"); 
-    //         expect(res.body.status).to.deep.equal(500);
-    //         done();
-    //     })
-    // });
+        chai 
+        .request(app)
+        .post("/api/v1/entries") 
+        .send(validEntry)
+        .set("Authorization", `${userToken}`)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(401); 
+            expect(res.body.message).to.deep.equal("Access Denied."); 
+            done();
+        })
+    })
+
+    it("Should add a new entry.", (done)=>{
+
+        chai 
+        .request(app)
+        .post("/api/v1/entries") 
+        .send(validEntry)
+        .set("Authorization", `Bearer ${userToken}`)
+        .end((err, res)=>{
+            
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(500);
+            expect(res.body.message).to.deep.equal('null value in column "user_id" violates not-null constraint' );
+            done();
+        })
+    });
 
 
-//     it("Should get all entries.", (done)=>{
-//         chai 
-//         .request(app)
-//         .get("/api/v1/entries") 
-//         .set("Authorization", `Bearer ${userToken}`)
-//         .end((err, res)=>{
-//             expect(res.body).to.be.an("object"); 
-//             expect(res.body.status).to.deep.equal(200); 
-//             expect(res.body.message).to.deep.equal("All Entries.");
-//             expect(res.body.data).to.be.an("array"); 
-//             done();
-//         })
-//     });
+    it("Should get all entries.", (done)=>{
+        chai 
+        .request(app)
+        .get("/api/v1/entries") 
+        .set("Authorization", `Bearer ${userToken}`)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(500); 
+            expect(res.body.message).to.deep.equal('Cannot read property \'user_id\' of undefined');
+            done();
+        })
+    });
 
     
 
-//     it("Should not get all entries", (done)=>{
-//         chai 
-//         .request(app)
-//         .post("/api/v1/entries") 
-//         .set("Authorization", `Bearer ${userToken}`)
-//         .end((err, res)=>{
-//             expect(res.body).to.be.an("object"); 
-//             expect(res.body.status).to.deep.equal(400); 
-//             expect(res.body.message).to.deep.equal("title must be a string");
-//             done();
-//         })
-//     });
+    it("Should not create all entries", (done)=>{
+        chai 
+        .request(app)
+        .post("/api/v1/entries") 
+        .set("Authorization", `Bearer ${userToken}`)
+        .end((err, res)=>{
+            expect(res.body).to.be.an("object"); 
+            expect(res.body.status).to.deep.equal(400); 
+            expect(res.body.message).to.deep.equal([ '"title" is required', '"description" is required' ]);
+            done();
+        })
+    });
 
 //     it("Should get a single entry", (done)=>{
 

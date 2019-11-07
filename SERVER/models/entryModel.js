@@ -28,6 +28,21 @@ class EntryModel {
         return queryResult;
     }
 
+
+    static async getAll(){
+        const queryText = "SELECT * FROM entries"; 
+        const queryResult = await db.query(queryText); 
+        return queryResult; 
+
+    } 
+
+
+    static async specificOwner(ownerId){
+        const queryText = "SELECT entries.user_id FROM entries WHERE user_id=$1"; 
+        const queryResult = await db.query(queryText, [ownerId]);
+        return queryResult;
+    } 
+
     static async findTitle(entry_title){
         const queryText = "SELECT * FROM entries WHERE title=$1";
         const queryResult = await db.query(queryText, [entry_title]);

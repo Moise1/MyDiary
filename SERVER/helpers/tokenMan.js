@@ -1,10 +1,13 @@
 import jwt from "jsonwebtoken";
-import devKeys from "../config/dev";
+import dotenv from "dotenv"; 
 
+dotenv.config(); 
+let config = {}; 
+config.secretOrPrivateKey = process.env.SECRET_OR_PUBLIC_KEY;
 
 export default {
   tokenizer(payload) {
-    const token = jwt.sign(payload, devKeys.SECRET_OR_PUBLIC_KEY, {
+    const token = jwt.sign(payload, config.secretOrPrivateKey, {
       expiresIn: 86400,
     });
     return token;
