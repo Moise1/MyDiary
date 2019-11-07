@@ -2,6 +2,7 @@ import dotenv from "dotenv";
 
 dotenv.config(); 
 
+dotenv.config(); 
 let config = {}; 
 
 config.DATABASE_URL = process.env.DB_TEST; 
@@ -10,6 +11,6 @@ config.DB_PASSWORD = process.env.DB_PASSWORD;
 
 export default {
     DATABASE_URL: config.DATABASE_URL,
-    secretOrPrivateKey: config.SECRET_OR_PUBLIC_KEY, 
+    SECRET_OR_PUBLIC_KEY: config.SECRET_OR_PUBLIC_KEY, 
     DB_PASSWORD: config.DB_PASSWORD
 }  
