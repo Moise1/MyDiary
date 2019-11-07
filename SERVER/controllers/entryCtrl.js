@@ -130,11 +130,11 @@ class Entry{
                 return res 
                 .status(404)
                 .json(new PageResponse(200, 'Sorry! You can only view your own entry.').result())
-            }
+                
             }else {
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, "Your Entry!", filteredEntry, null).result());
+                    .json(new ResponseHandler(200, "Your Entry!", rows[0]).result());
             }
         } catch (error) {
             return res
