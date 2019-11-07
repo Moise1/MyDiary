@@ -110,19 +110,27 @@ class Entry{
 
     
     static async singleEntry(req, res) {
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
-        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
-        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
+       
+        const {entry_id} = req.params; 
+        const owner_id = req.user.user_id; 
+        const user_data = await UserModel.findUser(owner_id); 
+        const theOwner = await EntryModel.specificOwner(user_data.rows[0].user_id);
+
+
         try {
-           
-            if (!theEntry) {
+
+            const {rows} = await EntryModel.getOne(parseInt(entry_id)); 
+
+            if (rows.length === 0) {
                 return res
-                    .status(404)
-                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            }else if(!filteredEntry){
+                .status(404)
+                .json(new ResponseHandler(404,  `Entry number ${entry_id} is not found!`).result());
+
+            }else if(theOwner.rows.length === 0 ){
                 return res 
                 .status(404)
-                .json(new ResponseHandler(404, "Sorry! You can only view your own entry.", null).result())
+                .json(new PageResponse(200, 'Sorry! You can only view your own entry.').result())
+            }
             }else {
                 return res
                     .status(200)

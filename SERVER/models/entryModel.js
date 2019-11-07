@@ -36,6 +36,14 @@ class EntryModel {
 
     } 
 
+    static async getOne(entry_id){
+        const queryText = "SELECT * FROM entries WHERE entry_id=$1"; 
+        const queryResult = await db.query(queryText, [parseInt(entry_id)]); 
+        return queryResult; 
+
+    } 
+
+    
 
     static async specificOwner(ownerId){
         const queryText = "SELECT entries.user_id FROM entries WHERE user_id=$1"; 
@@ -48,6 +56,8 @@ class EntryModel {
         const queryResult = await db.query(queryText, [entry_title]);
         return queryResult; 
     } 
+
+
 
 }
 
