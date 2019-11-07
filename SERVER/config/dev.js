@@ -10,4 +10,4 @@ export default {
     DATABASE_URL: config.DATABASE_URL,
     SECRET_OR_PUBLIC_KEY: config.SECRET_OR_PUBLIC_KEY, 
     DB_PASSWORD: config.DB_PASSWORD
-}  
+} 
