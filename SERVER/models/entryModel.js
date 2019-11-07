@@ -43,7 +43,19 @@ class EntryModel {
 
     } 
 
-    
+    static async Updater(entry_id, input){
+        const theMoment = moment(); 
+        const {
+            rows
+        } = await this.getOne(entry_id);
+        const title = input.title || rows[0].title;
+        const description = input.description  || rows[0].description;
+        const modified_on = theMoment.format("YYYY-MM-DD");
+        const queryText = "UPDATE entries SET title=$1, description=$2, modified_on=$3 WHERE entry_id=$4 RETURNING*";
+        const queryResult = await db.query(queryText, [title, description, modified_on, rows[0].entry_id]);
+        return queryResult;
+
+    }
 
     static async specificOwner(ownerId){
         const queryText = "SELECT entries.user_id FROM entries WHERE user_id=$1"; 

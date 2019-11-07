@@ -20,7 +20,8 @@ try{
                 user_id VARCHAR(250) REFERENCES users(user_id) NOT NULL,
                 title  VARCHAR(50) NOT NULL, 
                 description TEXT  NOT NULL,
-                created_on DATE NOT NULL);`;
+                created_on DATE NOT NULL, 
+                modified_on DATE);`;
 
 pool.query(tables);
 

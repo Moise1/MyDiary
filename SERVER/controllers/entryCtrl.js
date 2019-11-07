@@ -145,31 +145,37 @@ class Entry{
 
     static async updateEntry(req, res) {
 
-        const theEntry = entries.find(ent => ent.entry_id === parseInt(req.params.entry_id)); 
-        const allEntries = entries.filter(ent => ent.user_id === req.user.user_id);
-        const filteredEntry = allEntries.find(ent => ent.entry_id === parseInt(req.params.entry_id));
+        const {entry_id} = req.params; 
+        const owner_id = req.user.user_id; 
+        const user_data = await UserModel.findUser(owner_id); 
+        const theOwner = await EntryModel.specificOwner(user_data.rows[0].user_id);
+        const theEntry = await EntryModel.getOne(entry_id); 
+
         try {
 
-            if (!theEntry) {
+
+            if (theEntry.rows.length === 0) {
                 return res
-                    .status(404)
-                    .json(new ResponseHandler(404, `Sorry! Entry number ${req.params.entry_id} not found`, null).result())
-            }else if(!filteredEntry){
+                .status(404)
+                .json(new ResponseHandler(404,  'Entry is not found!').result());
+
+            }else if(theOwner.rows.length === 0 ){
                 return res 
                 .status(404)
-                .json(new ResponseHandler(404, "Sorry! You can only update your own entry.", null).result())
-            }else{
-                filteredEntry.title = req.body.title || filteredEntry.title;
-                filteredEntry.description = req.body.description || filteredEntry.description;
+                .json(new PageResponse(200, 'Sorry! You can only update your own entry.').result())
+                
+            }else {
 
+                const {rows} = await EntryModel.Updater(entry_id, req.body); 
                 return res
                     .status(200)
-                    .json(new ResponseHandler(200, `Entry number ${req.params.entry_id} successfully updated!`, filteredEntry, null).result())
+                    .json(new ResponseHandler(200, 'The entry is successfully updated!', rows[0]).result());
             }
+              
         } catch (error) {
             return res
                 .status(500)
-                .json(new ResponseHandler(500, error.message, null).result())
+                .json(new ResponseHandler(500, error.message, null, error).result())
         }
 
     }
