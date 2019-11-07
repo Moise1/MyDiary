@@ -63,40 +63,45 @@ class Entry{
             return res 
             .status(404)
             .json(new PageResponse(200, 'Sorry! You haven\'t created any entry yet.').result())
-
-        }else if( page <= 0 || page > rows.length || Number.isNaN(page * 1)){
-
-            return res 
-            .status(404)
-            .json(new PageResponse(404, "Sorry! This page doesn't exist").result())
-
-        }else if(page > 0 ){
-            
-            let currentPage = page * 1;
-            const totalEntries = rows.length; 
-            const entriesPerPage = 3;
-            const totalPages = Math.round(totalEntries / entriesPerPage); 
-            const startingEntry = (entriesPerPage * currentPage) - entriesPerPage;
-            const endingEntry = (entriesPerPage * currentPage);
-            const finalData = rows.slice(startingEntry, endingEntry);
-
-            return res 
-            .status(200)
-            .json(new PageResponse(
-                200, 
-                "All Entries.", 
-                page,
-                totalPages,
-                 entriesPerPage, 
-                 totalEntries , 
-                 finalData.reverse()).result())
-
-        }else{
-          return res 
-            .status(200)
-            .json(new ResponseHandler(200, "All Entries.", rows.reverse()).result())
         }
 
+        
+        if(page){
+
+            if( page <= 0 || page > rows.length || Number.isNaN(page *1)){
+
+                return res 
+                .status(404)
+                .json(new PageResponse(404, "Sorry! This page doesn't exist").result())
+                
+            }else{
+ 
+                let currentPage = page * 1;
+                const totalEntries = rows.length; 
+                const entriesPerPage = 3;
+                const totalPages = Math.round(totalEntries / entriesPerPage); 
+                const startingEntry = (entriesPerPage * currentPage) - entriesPerPage;
+                const endingEntry = (entriesPerPage * currentPage);
+                const finalData = rows.slice(startingEntry, endingEntry);
+
+                return res 
+                .status(200)
+                .json(new PageResponse(
+                    200, 
+                    "All Entries.", 
+                    page,
+                    totalPages,
+                    entriesPerPage, 
+                    totalEntries , 
+                    finalData.reverse()).result())
+            }
+        }
+
+
+        return res 
+        .status(200)
+        .json(new ResponseHandler(200, "All Entries.", rows.reverse()).result())
+       
         } catch (error) {
             return res
                 .status(500)
