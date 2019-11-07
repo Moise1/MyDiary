@@ -2,7 +2,6 @@ import dotenv from "dotenv";
 
 dotenv.config(); 
 
-dotenv.config(); 
 let config = {}; 
 
 config.DATABASE_URL = process.env.DB_TEST; 
