@@ -16,14 +16,15 @@ const {
 } = dummyAuth;
 
 const {
-    validEntry, 
     invalidEntry, 
+    validEntry,
     validEntryTwo, 
     validEntryThree
 } = dummyEntry;
 
 const userToken = tokenMan.tokenizer(validLogin);
 const secondUser = tokenMan.tokenizer(validLoginTwo); 
+
 
 chai.use(chaiHttp); 
 describe("TESTING DIARY ENTRY", ()=>{
@@ -38,7 +39,7 @@ describe("TESTING DIARY ENTRY", ()=>{
             .request(app) 
             .post("/api/v1/auth/signin")
             .send(validLogin) 
-            .end(()=>{
+            .end((err, res)=>{
                 done()
             })
         })
@@ -46,6 +47,7 @@ describe("TESTING DIARY ENTRY", ()=>{
 
 
     it("Should sign up a new second user", (done)=>{
+        
         chai 
         .request(app)
         .post("/api/v1/auth/signup")
@@ -84,6 +86,7 @@ describe("TESTING DIARY ENTRY", ()=>{
     })
 
     it("Should not add a new entry when access is denied.", (done)=>{
+
         chai 
         .request(app)
         .post("/api/v1/entries") 
@@ -98,12 +101,14 @@ describe("TESTING DIARY ENTRY", ()=>{
     })
 
     it("Should add a new entry.", (done)=>{
+
         chai 
         .request(app)
         .post("/api/v1/entries") 
         .send(validEntry)
         .set("Authorization", `Bearer ${userToken}`)
         .end((err, res)=>{
+            
             expect(res.body).to.be.an("object"); 
             expect(res.body.status).to.deep.equal(500);
             expect(res.body.message).to.deep.equal('null value in column "user_id" violates not-null constraint' );

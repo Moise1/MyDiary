@@ -1,9 +1,8 @@
 export default {
-    validEntry: {
+     validEntry: {
         title: "My first line of code", 
         description: "It was super awesome",
-    }, 
-
+    },
     invalidEntry: {
         title: 2000, 
         description: true

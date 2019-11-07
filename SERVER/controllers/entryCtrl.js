@@ -57,8 +57,7 @@ class Entry{
         const {rows} = await EntryModel.getAll(); 
         const {page} = req.query;
         
-
- 
+        
         if(theOwner.rows.length === 0 ){
             return res 
             .status(404)
