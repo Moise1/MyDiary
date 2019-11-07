@@ -64,7 +64,7 @@ class Entry{
             .status(404)
             .json(new PageResponse(200, 'Sorry! You haven\'t created any entry yet.').result())
 
-        }else if(page <= 0 || page > rows.length || typeof(parseInt(page)) === "string"  ){
+        }else if( page <= 0 || page > rows.length || Number.isNaN(page * 1)){
 
             return res 
             .status(404)
@@ -85,7 +85,8 @@ class Entry{
             .json(new PageResponse(
                 200, 
                 "All Entries.", 
-                page, totalPages,
+                page,
+                totalPages,
                  entriesPerPage, 
                  totalEntries , 
                  finalData.reverse()).result())
