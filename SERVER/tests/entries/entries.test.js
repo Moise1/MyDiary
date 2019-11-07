@@ -145,23 +145,39 @@ describe("TESTING DIARY ENTRY", ()=>{
         })
     });
 
-//     it("Should get a single entry", (done)=>{
+    it("Should get a single entry", (done)=>{
 
-//         const entry_id = 1;
+        chai 
+        .request(app)
+        .post('/api/v1/auth/signin')
+        .send(validLogin)
+        .end((err, res) =>{
 
-//         chai 
-//         .request(app)
-//         .get(`/api/v1/entries/${entry_id}`) 
-//         .set("Authorization", `Bearer ${userToken}`)
-//         .end((err, res)=>{
-//             expect(res.body).to.be.an("object");
-//             expect(res.body.status).to.deep.equal(200); 
-//             expect(res.status).to.deep.equal(200); 
-//             expect(res.body.message).to.deep.equal("Your Entry!");
-//             expect(res.body.data).to.be.an("object"); 
-//             done();
-//         })
-//     });
+            chai 
+
+            .request(app)
+            .post('/api/v1/entries') 
+            .set("Authorization", `Bearer ${userToken}`)
+            .end((err, res)=>{
+
+                const entry_id = 1;
+                chai 
+                .request(app)
+                .get(`/api/v1/entries/${entry_id}`) 
+                .set("Authorization", `Bearer ${userToken}`)
+                .end((err, res)=>{
+
+                    expect(res.body).to.be.an("object");
+                    expect(res.body.status).to.deep.equal(200); 
+                    expect(res.status).to.deep.equal(200); 
+                    expect(res.body.message).to.deep.equal("Your Entry!");
+                    expect(res.body.data).to.be.an("object"); 
+                })
+                done();  
+            })
+        })
+
+    });
 
 
 //     it("Should not get a single entry if the entry_id doesn't exist", (done)=>{
