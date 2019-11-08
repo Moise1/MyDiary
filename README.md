@@ -52,12 +52,22 @@ You must have the following tools installed in order to run this project: <br/>
 
 To get the code in this repo and customize it to suit your needs, do the following:<br/> 
 
+### API Documentation 
+
+[My Diary - API Documentation](https://documenter.getpostman.com/view/4572681/SW18uZe5?version=latest)
+
+
+
+
+
+
 ```
 git clone https://github.com/Moise1/MyDiary.git
 cd MyDiary
-npm install
+npm install 
 
 ```
+
 ### Important scripts 
 
 Start developer server 
