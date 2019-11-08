@@ -55,19 +55,15 @@ class Entry{
         const theOwner = await EntryModel.specificOwner(user_data.rows[0].user_id);
         
         const {rows} = await EntryModel.getAll(); 
-        const {page} = req.query;
+        const {page =1} = req.query;
         
         
         if(theOwner.rows.length === 0 ){
             return res 
             .status(404)
             .json(new PageResponse(200, 'Sorry! You haven\'t created any entry yet.').result())
-        }
 
-        
-        if(page){
-
-            if( page <= 0 || page > rows.length || Number.isNaN(page *1)){
+        }else if( page <= 0 || page > rows.length || Number.isNaN(page *1)){
 
                 return res 
                 .status(404)
@@ -94,8 +90,7 @@ class Entry{
                     totalEntries , 
                     finalData.reverse()).result())
             }
-        }
-
+        
 
         return res 
         .status(200)
