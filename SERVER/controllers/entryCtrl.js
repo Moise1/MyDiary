@@ -49,7 +49,6 @@ class Entry{
 
         try {
 
-
         const owner_id = req.user.user_id; 
         const user_data = await UserModel.findUser(owner_id); 
         const theOwner = await EntryModel.specificOwner(user_data.rows[0].user_id);
@@ -90,11 +89,6 @@ class Entry{
                     totalEntries , 
                     finalData.reverse()).result())
             }
-        
-
-        return res 
-        .status(200)
-        .json(new ResponseHandler(200, "All Entries.", rows.reverse()).result())
        
         } catch (error) {
             return res
